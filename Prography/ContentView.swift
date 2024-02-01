@@ -6,65 +6,61 @@
 ////
 //
 //import SwiftUI
-//import Kingfisher
-//import LazyCollectionView
 //
-//struct YourCustomLayout: LazyCollectionLayout {
-//    // Implement the required methods
-//    // ...
-//}
-//
-//struct YourItemView: View {
-//    var body: some View {
-//        // Implement your custom item view
-//        // Use AsyncImage to load the image from the URL
-//    }
-//
-//    func configure(with result: Result) {
-//        // Configure your item view based on the result
-//        // Load the image using AsyncImage
-//    }
-//}
 //struct ContentView: View {
-//    @StateObject private var layout = MyCustomLayout() // Assuming you have a custom layout
-//    @ObservedObject var searchObjectManager = SearchObjectManager.shared
-//    
-//    let data: [String] = ["Item 1", "Item 2", "Item 3", "Item 4"] // Replace this with your actual data
+//    @State private var cards = ["Card 1", "Card 2", "Card 3", "Card 4"]
+//    @State private var offset: CGSize = .zero
+//    @State private var currentIndex: Int = 0
 //
 //    var body: some View {
-//        LazyCollectionView(data: searchObjectManager.photoResults, layout: layout) { item in
-//            KFImage(URL(string: item.urls?.raw ?? ""))
-//                .resizable()
-//                .scaledToFit()
-//        }
-//        .onAppear {
-//            searchObjectManager.searchRandomImage()
-//            searchObjectManager.searchPhotos()
+//        ZStack {
+//            ForEach(0..<cards.count, id: \.self) { index in
+//                CardView(card: cards[index])
+//                    .offset(x: index == currentIndex ? offset.width : 0, y: 0)
+//                    .gesture(
+//                        DragGesture()
+//                            .onChanged { gesture in
+//                                offset = gesture.translation
+//                            }
+//                            .onEnded { gesture in
+//                                withAnimation {
+//                                    if abs(offset.width) > 100 {
+//                                        offset.width = offset.width > 0 ? 400 : -400
+//                                        currentIndex += offset.width > 0 ? 1 : -1
+////                                        currentIndex = currentIndex.clamped(to: 0..<cards.count)
+//                                    } else {
+//                                        offset = .zero
+//                                    }
+//                                }
+//                            }
+//                    )
+//            }
 //        }
 //    }
 //}
 //
-//class MyCustomLayout: LazyCollectionLayout {
-//    @Published var contentSize: CGSize = .zero
+//struct CardView: View {
+//    let card: String
 //
-//    func setParentSize(_ parentSize: CGSize) {
-//        // Handle parent size changes, if needed
-//    }
-//
-//    func prepare<Data>(withData data: Data) where Data: RandomAccessCollection & Equatable,
-//                                                   Data.Index == Int,
-//                                                   Data.Element: Identifiable {
-//        // Calculate content size based on your data and layout logic
-//        contentSize = CGSize(width: 300, height: 300)
-//    }
-//
-//    func layoutAttributesForElements(in rect: CGRect) -> [LazyCollectionLayoutAttributes] {
-//        // Calculate and return layout attributes for elements within the specified rectangle
-//        // You'll need to implement this based on your custom layout logic
-//        return []
+//    var body: some View {
+//        RoundedRectangle(cornerRadius: 10)
+//            .fill(Color.blue)
+//            .frame(width: 300, height: 200)
+//            .overlay(
+//                Text(card)
+//                    .foregroundColor(.white)
+//            )
 //    }
 //}
 //
-//#Preview {
-//    ContentView()
+//extension Comparable {
+//    func clamped(to range: ClosedRange<Self>) -> Self {
+//        return min(max(self, range.lowerBound), range.upperBound)
+//    }
+//}
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
 //}

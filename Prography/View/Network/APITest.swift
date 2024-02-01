@@ -33,7 +33,7 @@ struct APITest: View {
                     Text(result.urls?.raw ?? "none raw")
 //                    KFImage(URL(string: result.urls?.raw ?? ""))
 //                        .resizable()
-//                        .scaledToFit()
+//                        .scaledToFit() //searchObjectManager.photoResults
 
                 }
                 .foregroundColor(.black)

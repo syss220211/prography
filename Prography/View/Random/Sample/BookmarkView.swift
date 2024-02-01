@@ -33,12 +33,7 @@ struct BookmarkView: View {
                 }
             }
             .padding(.horizontal, 15)
-            .navigationBarTitle("", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("Logo")
-                }
-            }
+            .customNavigationTitle()
             .onAppear {
 //                searchObjectManager.searchRandomImage()
 //                searchObjectManager.searchPhotos()
