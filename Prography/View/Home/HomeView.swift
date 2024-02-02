@@ -1,57 +1,60 @@
 //
-//  HomeView.swift
+//  BookmarkTest.swift
 //  Prography
 //
 //  Created by 박서연 on 2024/01/30.
 //
 
 import SwiftUI
+import Kingfisher
+import WaterfallGrid
 
 struct HomeView: View {
-    var bookmark: Bool = false
-    var sample: [String] = ["Sample1", "Sample2", "Sample3", "Sample4"]
-    
+    @State var isShowing: Bool = false
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text("북마크")
-                Text("최신이미지")
-                LazyVGrid(columns: [GridItem](repeating: GridItem(.flexible(), spacing: 20), count: 2), spacing: 10) {
-                    ForEach(sample, id: \.self) { image in
-                        Image(image)
-                            .resizable()
-                            .frame(maxWidth: .infinity)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: (UIScreen.main.bounds.width/2) - 20)
-                            .clipped()
-                            .cornerRadius(4)
+                NavigationRectangleView()
+                Spacer().frame(height: 30)
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("북마크")
+                            .font(.pretendardBold20)
+                        HomeBookmarkScrollView()
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("최신이미지")
+                            .font(.pretendardBold20)
+                        
+                            WaterfallGrid(Sample.data, id: \.self) { index in
+                                ZStack(alignment: .bottom) {
+                                    Image(index.name)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .onTapGesture {
+                                            isShowing.toggle()
+                                        }
+                                    Text(index.descritpion)
+                                        .foregroundColor(.white)
+                                        .lineLimit(2)
+                                        .padding(10)
+                                        .font(.prentendardMedium13)
+                                }
+                                
+                            }
                     }
                 }
                 .padding(.horizontal, 20)
-                 
-            }
-            .navigationBarTitle("", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("Logo")
-                }
+                .customNavigationTitle()
             }
         }
-    }
-}
-
-struct hasBookmarkView: View {
-    var body: some View {
-        VStack {
-            Text("북마크")
-                .font(.custom(PretendardFont.bold, size: 20))
-            
-            Text("최신이미지")
-                .font(.custom(PretendardFont.bold, size: 20))
-        }
+        .popup(isPopup: $isShowing)
     }
 }
 
 #Preview {
     HomeView()
 }
+

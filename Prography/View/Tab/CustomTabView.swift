@@ -25,10 +25,10 @@ struct CustomTabView: View {
             })
             
             Button(action: {
-                tabBarViewModel.selected = .bookmark
+                tabBarViewModel.selected = .card
             }, label: {
                 Image("Bookmark")
-                    .opacity(tabBarViewModel.selected == .bookmark ? 1.0 : 0.5)
+                    .opacity(tabBarViewModel.selected == .card ? 1.0 : 0.5)
             })
         }
         .frame(maxWidth: .infinity)

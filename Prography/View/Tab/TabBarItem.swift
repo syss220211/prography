@@ -8,16 +8,15 @@
 import SwiftUI
 
 enum TabBarItem: CaseIterable {
-    case home, bookmark
+    case home, card
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .home:
-//            HomeView()
-            HomeViewTest()
-        case .bookmark:
-            BookmarkView()
+            HomeView()
+        case .card:
+            RandomCardView()
         }
     }
     
@@ -25,8 +24,8 @@ enum TabBarItem: CaseIterable {
         switch self {
         case .home:
             return "Home"
-        case .bookmark:
-            return "Bookmark"
+        case .card:
+            return "Card"
         }
     }
     

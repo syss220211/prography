@@ -10,7 +10,8 @@ import WaterfallGrid
 import Kingfisher
 
 struct APITest: View {
-    @ObservedObject var searchObjectManager = SearchObjectManager.shared
+//    @ObservedObject var searchObjectManager = SearchObjectManager.shared
+    private let searchManager = SearchObjectManager.shared
     
     var body: some View {
 //        VStack{
@@ -27,13 +28,13 @@ struct APITest: View {
 //        }
         
         List {
-            ForEach(searchObjectManager.photoResults, id: \.id) { result in
+            ForEach(searchManager.photoResults, id: \.id) { result in
                 VStack {
                     Text(result.id)
                     Text(result.urls?.raw ?? "none raw")
 //                    KFImage(URL(string: result.urls?.raw ?? ""))
 //                        .resizable()
-//                        .scaledToFit()
+//                        .scaledToFit() //searchObjectManager.photoResults
 
                 }
                 .foregroundColor(.black)

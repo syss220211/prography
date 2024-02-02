@@ -12,7 +12,7 @@ struct PrographyApp: App {
     var body: some Scene {
         WindowGroup {
 //            MainView()
-            BookmarkView()
+            userDefaultTest()
         }
     }
 }
