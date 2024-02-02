@@ -101,3 +101,25 @@ struct CardSample2View: View {
 #Preview {
     CardSample2View()
 }
+
+
+struct CardTView: View {
+    private let searchManager = SearchObjectManager.shared
+    
+    var body: some View {
+        VStack(spacing: 10) {
+//            KFImage(URL(string: searchObjectManager.randomResults?.urls?.raw ?? ""))
+            Image("Sample1")
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(15)
+                        
+            CardBottomBtnView()
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: UIScreen.main.bounds.height * 0.5)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+}

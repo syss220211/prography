@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhotoPopup: View {
+struct PhotoPopupView: View {
     @State var isBookmarked: Bool = false
     @Binding var userName: String
     @Binding var isPopup: Bool
@@ -35,7 +35,7 @@ struct PhotoPopup: View {
                     }
                     
                     Text(userName)
-                        .font(.custom(PretendardFont.bold, size: 20))
+                        .font(.pretendardBold20)
                     
                     Spacer()
                     HStack(spacing: 15) {
@@ -60,13 +60,13 @@ struct PhotoPopup: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
-                        .font(.custom(PretendardFont.bold, size: 20))
+                        .font(.pretendardBold20)
                     VStack(alignment: .leading, spacing: 8) {
                         Text(desc)
                             .lineLimit(2)
                         Text(tags.first ?? "not tags")
                     }
-                    .font(.custom(PretendardFont.medium, size: 15))
+                    .font(.prentendardMedium15)
                 }
             }
             .foregroundColor(.white)
@@ -76,5 +76,5 @@ struct PhotoPopup: View {
 }
 
 #Preview {
-    PhotoPopup(userName: .constant("username"), isPopup: .constant(true), title: .constant("title"), desc: .constant("desc"), tags: .constant([""]))
+    PhotoPopupView(userName: .constant("username"), isPopup: .constant(true), title: .constant("title"), desc: .constant("desc"), tags: .constant([""]))
 }

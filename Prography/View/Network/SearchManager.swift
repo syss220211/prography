@@ -11,29 +11,17 @@ import SwiftUI
 
 
 
-final class SearchObjectManager: ObservableObject {
+final class SearchObjectManager {
     static let shared = SearchObjectManager()
     private init() {}
     
-    @Published var CombineImage: Result?
-    @Published var backgroundImage: Result?
-    @Published var randomResults: Result? // [Result]?
-    @Published var photoResults = [Result]()
-
-    // 랜덤포토 추가 테스트
-    private var randomPhotos = [Result]()
-    
-    // MARK: - Test
-    private var backgroundText: String = "second"
-    private var randomText: String = "first"
-    private var groupText: [String] = []
-    private var randomSearchs: Result?
-    private var cancellables: Set<AnyCancellable> = []
+    @Published var photoResults = [Result]() //이거
 
     private let accessKey = "BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s"
     
     // https://api.unsplash.com/photos/random/?count=30&client_id=BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s
     
+    /// 랜덤 사진 한 장 가져오는 함수
     func searchRandomImage(completion: @escaping (Result?) -> Void) {
         let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
         
@@ -41,20 +29,16 @@ final class SearchObjectManager: ObservableObject {
             switch response.result {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
-                    print("🔥🔥 \(jsonResult)")
                     completion(jsonResult)
-//                    self.randomResults = jsonResult
-                    print("🔥랜덤성공🔥 \(jsonResult)")
                 }
             case .failure(let error):
                 completion(nil)
-                print("🥶랜덤🥶실패")
                 print(error.localizedDescription)
             }
         }
     }
     
-    // 백그라운드 용
+    /// 무한 스크롤을 위해 뒤어서 도는 함수
     func backgroundRandomImage(completion: @escaping (Result?) -> Void) {
         let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
         
@@ -63,67 +47,14 @@ final class SearchObjectManager: ObservableObject {
                 switch response.result {
                 case .success(let jsonResult):
                     completion(jsonResult)
-                    print("🔥Random🔥Success")
-
                 case .failure(let error):
                     completion(nil)
-                    print("🥶Random🥶Failed")
                     print(error.localizedDescription)
                 }
             }
         }
-        
     }
-    
-    func combineRandomImage() {
-            let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
-            
-            AF.request(url)
-                .validate()
-                .publishDecodable(type: Result.self)
-                .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        print("🥶랜덤🥶실패")
-                        print(error.localizedDescription)
-                    }
-                } receiveValue: { [weak self] jsonResult in
-                    guard let result = jsonResult.value else {
-                        // Handle the error case or return if necessary
-                        return
-                    }
-                    
-                    print("🔥랜덤🔥성공")
-                    print(result)
-                    self?.randomSearchs = result
-                }
-                .store(in: &cancellables)
-        }
-    
-    
-    
-    
-    // Add Random Test
-    func randomPhotoAppend() {
-        let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
-        
-        AF.request(url).validate().responseDecodable(of: Result.self) { response in
-            switch response.result {
-            case .success(let jsonResult):
-                DispatchQueue.main.async {
-//                    self.randomResults = jsonResult
-                    self.randomPhotos.append(jsonResult)
-                    print("🔥랜덤🔥성공")
-                }
-            case .failure(let error):
-                print("🥶랜덤🥶실패")
-                print(error.localizedDescription)
-            }
-        }
-    }
+
     
     func searchPhotos() {
         let url = "https://api.unsplash.com/photos?client_id=\(accessKey)"

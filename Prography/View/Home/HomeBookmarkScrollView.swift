@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeBookmarkTest: View {
+struct HomeBookmarkScrollView: View {
     
     let rows = [GridItem(.flexible())]
     
@@ -21,12 +21,12 @@ struct HomeBookmarkTest: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }
+            .padding(.vertical, 12)
         }
-        .frame(maxWidth: .infinity)
         .frame(maxHeight: UIScreen.main.bounds.height * 0.3)
     }
 }
 
 #Preview {
-    HomeBookmarkTest()
+    HomeBookmarkScrollView()
 }

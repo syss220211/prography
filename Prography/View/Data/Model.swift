@@ -19,11 +19,3 @@ struct Urls: Codable {
     let raw, full, thumb, regular: String
     let small: String
 }
-
-//struct URLs: Codable {
-//    var raw: String?
-//    var full: String?
-//    var regular: String?
-//    var small: String?
-//}
-

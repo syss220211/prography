@@ -14,10 +14,9 @@ enum TabBarItem: CaseIterable {
     var view: some View {
         switch self {
         case .home:
-//            HomeView()
-            HomeViewTest()
+            HomeView()
         case .card:
-            BookmarkView()
+            RandomCardView()
         }
     }
     

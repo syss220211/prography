@@ -35,7 +35,7 @@ struct popSample: View {
 
             // Popup view
             if isPopupVisible {
-                PhotoPopup(userName: $userName, isPopup: $isPopupVisible, title: $title, desc: $desc, tags: $tag)
+                PhotoPopupView(userName: $userName, isPopup: $isPopupVisible, title: $title, desc: $desc, tags: $tag)
             }
         }
         

@@ -89,7 +89,7 @@ struct DetailText: View {
     
     var body: some View {
         ZStack {
-            HomeViewTest()
+            HomeView()
             
             Color.clear
                 .popup(isPopup: $ispop)
