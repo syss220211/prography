@@ -15,6 +15,13 @@ struct Result: Codable, Identifiable {
     static let emptyData = Result(id: "통신 실패.", urls: nil)
 }
 
+struct Photos: Codable, Identifiable {
+    var id: String
+    var slug: String
+    var description: String
+    var urls: Urls?
+}
+
 struct Urls: Codable {
     let raw, full, thumb, regular: String
     let small: String
