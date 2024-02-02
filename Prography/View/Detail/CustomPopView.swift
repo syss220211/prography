@@ -53,19 +53,27 @@ struct CustomPopView: ViewModifier {
                         }
                     }
                     
+                    Spacer()
                     Image(photo)
                         .resizable()
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
-                    
+                    Spacer()
                     VStack(alignment: .leading, spacing: 4) {
                         Text(title)
                             .font(.pretendardBold20)
-                        VStack(alignment: .leading, spacing: 8) {
+                        
+                        VStack(alignment: .leading, spacing: 8){
                             Text(desc)
                                 .lineLimit(2)
-                            Text(tags.first ?? "not tags")
+                                .font(.prentendardMedium15)
+                            HStack {
+                                ForEach(tags, id: \.self) { tag in
+                                    Text(tag)
+                                        .font(.prentendardMedium15)
+                                }
+                            }
                         }
                         .font(.prentendardMedium15)
                     }
@@ -104,7 +112,7 @@ struct PopupTest: View {
     @State private var isBookmarked: Bool = false
     @State private var photo: String = "Sample1"
     @State private var userName: String = "박서연"
-    @State private var isPopup: Bool = false
+    @State private var isPopup: Bool = true
     @State private var title: String = "사진제목"
     @State private var desc: String = "사진 설명이고 최대 2줄"
     @State private var tags: [String] = ["태그", "태그2", "태그3", "태그4", "태그5", "태그6"]
