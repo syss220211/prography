@@ -10,7 +10,7 @@ import Kingfisher
 import WaterfallGrid
 
 struct HomeViewTest: View {
-    
+    @State var isShowing: Bool = false
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -36,26 +36,25 @@ struct HomeViewTest: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    
+                                        .onTapGesture {
+                                            isShowing.toggle()
+                                        }
                                     Text(index.descritpion)
                                         .foregroundColor(.white)
                                         .lineLimit(2)
                                         .padding(10)
                                         .font(.custom(PretendardFont.medium, size: 13))
                                 }
+                                
                             }
 //                        }
                     }
                 }
-                .padding(.horizontal, 15)
-                .navigationBarTitle("", displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Image("Logo")
-                    }
-                }
+                .padding(.horizontal, 20)
+                .customNavigationTitle()
             }
         }
+        .popup(isPopup: $isShowing)
     }
 }
 

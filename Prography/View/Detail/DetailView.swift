@@ -13,61 +13,68 @@ struct DetailView: ViewModifier {
     
 //    var body: some View {
     func body(content: Content) -> some View {
-        ZStack {
-            Color.black
-                .opacity(0.8)
-                .ignoresSafeArea()
-            VStack(alignment: .leading) {
-                
-                HStack {
-                    Button {
-                        print("닫기 버튼 tapped")
-                    } label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.black)
-                            .padding(8)
-                            .background(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 50))
-                    }
-                    
-                    Text("Username")
-                        .font(.custom(PretendardFont.bold, size: 20))
-                    
-                    Spacer()
-                    HStack(spacing: 15) {
-                        Image("save")
-                        
-                        Button {
-                            print("북마크에 사진 저장")
-                            isBookmarked.toggle()
-                        } label: {
-                            Image("bookmark")
-                                .opacity(isBookmarked ? 1.0 : 0.5)
-                        }
-
-                    }
-                }
-                
-                Image("Sample1")
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("title")
-                        .font(.custom(PretendardFont.bold, size: 20))
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("description 최대 2줄")
-                            .lineLimit(2)
-                        Text("#tag")
-                    }
-                    .font(.custom(PretendardFont.medium, size: 15))
-                }
+        if isPopup {
+            ZStack {
+                Text("ddd")
             }
-            .foregroundColor(.white)
-            .padding(.horizontal, 10)
+        } else {
+            content
         }
+//        ZStack {
+//            Color.black
+//                .opacity(0.8)
+//                .ignoresSafeArea()
+//            VStack(alignment: .leading) {
+//                
+//                HStack {
+//                    Button {
+//                        print("닫기 버튼 tapped")
+//                    } label: {
+//                        Image(systemName: "xmark")
+//                            .foregroundColor(.black)
+//                            .padding(8)
+//                            .background(.white)
+//                            .clipShape(RoundedRectangle(cornerRadius: 50))
+//                    }
+//                    
+//                    Text("Username")
+//                        .font(.custom(PretendardFont.bold, size: 20))
+//                    
+//                    Spacer()
+//                    HStack(spacing: 15) {
+//                        Image("save")
+//                        
+//                        Button {
+//                            print("북마크에 사진 저장")
+//                            isBookmarked.toggle()
+//                        } label: {
+//                            Image("bookmark")
+//                                .opacity(isBookmarked ? 1.0 : 0.5)
+//                        }
+//
+//                    }
+//                }
+//                
+//                Image("Sample1")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .clipShape(RoundedRectangle(cornerRadius: 10))
+//                
+//                
+//                VStack(alignment: .leading, spacing: 4) {
+//                    Text("title")
+//                        .font(.custom(PretendardFont.bold, size: 20))
+//                    VStack(alignment: .leading, spacing: 8) {
+//                        Text("description 최대 2줄")
+//                            .lineLimit(2)
+//                        Text("#tag")
+//                    }
+//                    .font(.custom(PretendardFont.medium, size: 15))
+//                }
+//            }
+//            .foregroundColor(.white)
+//            .padding(.horizontal, 10)
+//        }
     }
 }
 

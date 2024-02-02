@@ -9,7 +9,9 @@ import Alamofire
 import Combine
 import SwiftUI
 
-class SearchObjectManager: ObservableObject {
+
+
+final class SearchObjectManager: ObservableObject {
     static let shared = SearchObjectManager()
     private init() {}
     
@@ -17,38 +19,60 @@ class SearchObjectManager: ObservableObject {
     @Published var backgroundImage: Result?
     @Published var randomResults: Result? // [Result]?
     @Published var photoResults = [Result]()
-    
+
     // 랜덤포토 추가 테스트
-    @Published var randomPhotos = [Result]()
+    private var randomPhotos = [Result]()
     
     // MARK: - Test
-    @Published var backgroundText: String = "second"
-    @Published var randomText: String = "first"
-    @Published var groupText: [String] = []
-    @Published var randomSearchs: Result?
+    private var backgroundText: String = "second"
+    private var randomText: String = "first"
+    private var groupText: [String] = []
+    private var randomSearchs: Result?
     private var cancellables: Set<AnyCancellable> = []
 
-    var accessKey = "BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s"
+    private let accessKey = "BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s"
     
     // https://api.unsplash.com/photos/random/?count=30&client_id=BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s
     
-    func searchRandomImage() {
+    func searchRandomImage(completion: @escaping (Result?) -> Void) {
         let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
         
         AF.request(url).validate().responseDecodable(of: Result.self) { response in
             switch response.result {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
-                    self.randomResults = jsonResult
-//                    self.randomResults?.append(jsonResult)
-                    print("🔥랜덤🔥성공")
-                    print(jsonResult)
+                    print("🔥🔥 \(jsonResult)")
+                    completion(jsonResult)
+//                    self.randomResults = jsonResult
+                    print("🔥랜덤성공🔥 \(jsonResult)")
                 }
             case .failure(let error):
+                completion(nil)
                 print("🥶랜덤🥶실패")
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    // 백그라운드 용
+    func backgroundRandomImage(completion: @escaping (Result?) -> Void) {
+        let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
+        
+        DispatchQueue.global().async {
+            AF.request(url).validate().responseDecodable(of: Result.self) { response in
+                switch response.result {
+                case .success(let jsonResult):
+                    completion(jsonResult)
+                    print("🔥Random🔥Success")
+
+                case .failure(let error):
+                    completion(nil)
+                    print("🥶Random🥶Failed")
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
     }
     
     func combineRandomImage() {
@@ -79,25 +103,7 @@ class SearchObjectManager: ObservableObject {
                 .store(in: &cancellables)
         }
     
-    // 백그라운드 용
-    func backgroundRandomImage() {
-        let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
-        
-        AF.request(url).validate().responseDecodable(of: Result.self) { response in
-            switch response.result {
-            case .success(let jsonResult):
-                DispatchQueue.global().async {
-                    self.backgroundImage = jsonResult
-                    // self.randomResults?.append(jsonResult)
-                    print("🔥Random🔥Success")
-                    print(jsonResult)
-                }
-            case .failure(let error):
-                print("🥶Random🥶Failed")
-                print(error.localizedDescription)
-            }
-        }
-    }
+    
     
     
     // Add Random Test
