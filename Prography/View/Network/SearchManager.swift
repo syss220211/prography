@@ -22,25 +22,25 @@ final class SearchObjectManager {
     // https://api.unsplash.com/photos/random/?count=30&client_id=BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s
     
     // MARK: - 첫번째 탭바용 함수
-    func searchPhotos() {
-        let url = "https://api.unsplash.com/photos?client_id=\(accessKey)"
-        
-        AF.request(url).validate().responseDecodable(of: [Result].self) { response in
-            switch response.result {
-            case .success(let jsonResult):
-                DispatchQueue.main.async {
-                    self.photoResults.append(contentsOf: jsonResult)
-                    print("count: \(jsonResult.count)")
-                    print("🔥포토🔥성공")
-                }
-            case .failure(let error):
-                print("🥶포토🥶실패")
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    // escaping으로 해보기
+//    func searchPhotos() {
+//        let url = "https://api.unsplash.com/photos?client_id=\(accessKey)"
+//        
+//        AF.request(url).validate().responseDecodable(of: [Result].self) { response in
+//            switch response.result {
+//            case .success(let jsonResult):
+//                DispatchQueue.main.async {
+//                    self.photoResults.append(contentsOf: jsonResult)
+//                    print("count: \(jsonResult.count)")
+//                    print("🔥포토🔥성공")
+//                }
+//            case .failure(let error):
+//                print("🥶포토🥶실패")
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+
+    // MARK: - escaping으로 해보기 -> 성공
     func testEscapingGetDetailPhoto(completion: @escaping([Photos]) -> Void) {
         let url = "https://api.unsplash.com/photos?client_id=\(accessKey)"
         

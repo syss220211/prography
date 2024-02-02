@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CustomPopView: ViewModifier {
     @Binding var isBookmarked: Bool
-    @Binding var photo: String
-    @Binding var userName: String
+    var photo: String
+    var userName: String
     @Binding var isPopup: Bool
-    @Binding var title: String
-    @Binding var desc: String
-    @Binding var tags: [String]
+    var title: String
+    var desc: String
+    var tags: [Tag]
     
     func body(content: Content) -> some View {
         content.overlay {
@@ -54,10 +55,18 @@ struct CustomPopView: ViewModifier {
                     }
                     
                     Spacer()
-                    Image(photo)
+                    KFImage(URL(string: photo))
+                        .placeholder {
+                            ProgressView()
+                        }
                         .resizable()
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
+//                    Image(photo)
+//                        .resizable()
+//                        .scaledToFit()
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                     Spacer()
                     VStack(alignment: .leading, spacing: 4) {
@@ -69,9 +78,10 @@ struct CustomPopView: ViewModifier {
                                 .lineLimit(2)
                                 .font(.prentendardMedium15)
                             HStack {
-                                ForEach(tags, id: \.self) { tag in
-                                    Text(tag)
+                                ForEach(tags.prefix(4), id: \.self) { tag in
+                                    Text("#\(tag.title)")
                                         .font(.prentendardMedium15)
+                                        .lineLimit(1)
                                 }
                             }
                         }
@@ -91,12 +101,12 @@ struct CustomPopView: ViewModifier {
 
 extension View {
     func customPopupTest1(isBookmarked: Binding<Bool>,
-                          photo: Binding<String>,
-                          userName: Binding<String>,
+                          photo: String,
+                          userName: String,
                           isPopup: Binding<Bool>,
-                          title: Binding<String>,
-                          desc: Binding<String>,
-                          tags: Binding<[String]>)
+                          title: String,
+                          desc: String,
+                          tags: [Tag])
     -> some View {
         self.modifier(CustomPopView(isBookmarked: isBookmarked,
                                     photo: photo,
@@ -110,12 +120,13 @@ extension View {
 
 struct PopupTest: View {
     @State private var isBookmarked: Bool = false
-    @State private var photo: String = "Sample1"
-    @State private var userName: String = "박서연"
     @State private var isPopup: Bool = true
-    @State private var title: String = "사진제목"
-    @State private var desc: String = "사진 설명이고 최대 2줄"
-    @State private var tags: [String] = ["태그", "태그2", "태그3", "태그4", "태그5", "태그6"]
+    
+    private var photo: String = "Sample1"
+    private var userName: String = "박서연"
+    private var title: String = "사진제목"
+    private var desc: String = "사진 설명이고 최대 2줄"
+    private var tags: [Tag] = [Tag(title: "태그saasdf1"), Tag(title: "태그sadfasdf2"), Tag(title: "태asdfsadf그3"), Tag(title: "태asdfsadfsdf그4")]
     
     var body: some View {
         ZStack {
@@ -134,12 +145,12 @@ struct PopupTest: View {
             
         }
         .customPopupTest1(isBookmarked: $isBookmarked,
-                          photo: $photo,
-                          userName: $userName,
+                          photo: photo,
+                          userName: userName,
                           isPopup: $isPopup,
-                          title: $title,
-                          desc: $desc,
-                          tags: $tags)
+                          title: title,
+                          desc: desc,
+                          tags: tags)
     }
 }
 
