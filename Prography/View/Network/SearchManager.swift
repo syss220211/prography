@@ -40,6 +40,23 @@ final class SearchObjectManager {
         }
     }
     
+    // escaping으로 해보기
+    func testEscapingGetDetailPhoto(completion: @escaping([Photos]) -> Void) {
+        let url = "https://api.unsplash.com/photos?client_id=\(accessKey)"
+        
+        AF.request(url).validate().responseDecodable(of: [Photos].self) { response in
+            switch response.result {
+            case .success(let jsonResult):
+                DispatchQueue.main.async {
+                    print("🔥디테일 함수 성공🔥")
+                    completion(jsonResult)
+                }
+            case .failure(let error):
+                print("🥶디테일 함수 실패🥶")
+                print(error.localizedDescription)
+            }
+        }
+    }
     // MARK: - 두번째 탭바용 함수
     /// 랜덤 사진 한 장 가져오는 함수
     func searchRandomImage(completion: @escaping (Result?) -> Void) {

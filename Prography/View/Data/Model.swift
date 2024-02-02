@@ -18,7 +18,7 @@ struct Result: Codable, Identifiable {
 struct Photos: Codable, Identifiable {
     var id: String
     var slug: String
-    var description: String
+    var description: String?
     var urls: Urls?
 }
 

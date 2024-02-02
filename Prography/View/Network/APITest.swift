@@ -9,40 +9,48 @@ import SwiftUI
 import WaterfallGrid
 import Kingfisher
 
-struct APITest: View {
-//    @ObservedObject var searchObjectManager = SearchObjectManager.shared
+class ApiTestViewModel: ObservableObject {
     private let searchManager = SearchObjectManager.shared
     
-    var body: some View {
-//        VStack{
-//            Text("북마크")
-//            
-//            ScrollView {
-//                WaterfallGrid(searchObjectManager.photoResults, id: \.id) { result in
-//                    KFImage(URL(string: result.urls?.raw ?? ""))
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .clipShape(RoundedRectangle(cornerRadius: 10))
-//                }
-//            }.padding(.horizontal, 15)
-//        }
-        
-        List {
-            ForEach(searchManager.photoResults, id: \.id) { result in
-                VStack {
-                    Text(result.id)
-                    Text(result.urls?.raw ?? "none raw")
-//                    KFImage(URL(string: result.urls?.raw ?? ""))
-//                        .resizable()
-//                        .scaledToFit() //searchObjectManager.photoResults
-
-                }
-                .foregroundColor(.black)
-            }
+    @Published var testDetailPhoto: [Photos] = []
+    
+    func fetchTestDetailPhotos() {
+        searchManager.testEscapingGetDetailPhoto { photos in
+            self.testDetailPhoto = photos
         }
-        .onAppear {
-//            searchObjectManager.searchRandomImage()
-//            searchObjectManager.searchPhotos()
+    }
+    
+}
+
+struct APITest: View {
+    @StateObject var testViewModel = ApiTestViewModel()
+    
+    var body: some View {
+        VStack {
+            Button {
+                // testViewModel.fetchTestDetailPhotos()
+            } label: {
+                Text("통신 태우기")
+            }
+            
+            List (testViewModel.testDetailPhoto, id: \.id) { data in
+                if let url = data.urls {
+                    VStack(alignment: .leading) {
+                        Text("id값: \(data.id)")
+                        KFImage(URL(string: url.raw))
+                            .placeholder {
+                                ProgressView()
+                            }
+                            .resizable()
+                            .scaledToFit()
+                        Text("제목 : \(data.slug)")
+                        Text("설명 : \(data.description ?? "")")
+                            .lineLimit(2)
+                    }
+                } else {
+                    Text("통신에 실패했습니다.")
+                }
+            }
         }
     }
 }

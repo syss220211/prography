@@ -9,8 +9,23 @@ import SwiftUI
 import Kingfisher
 import WaterfallGrid
 
+class HomeViewModel: ObservableObject {
+    private let searchManager = SearchObjectManager.shared
+    
+    @Published var testDetailPhoto: [Photos] = []
+    
+    func fetchTestDetailPhotos() {
+        searchManager.testEscapingGetDetailPhoto { photos in
+            self.testDetailPhoto = photos
+        }
+    }
+}
+
 struct HomeView: View {
-    @State var isShowing: Bool = false
+    
+    @ObservedObject var homeViewModel = HomeViewModel()
+    @State private var isShowing: Bool = false
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -27,30 +42,40 @@ struct HomeView: View {
                         Text("최신이미지")
                             .font(.pretendardBold20)
                         
-                            WaterfallGrid(Sample.data, id: \.self) { index in
-                                ZStack(alignment: .bottom) {
-                                    Image(index.name)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                        .onTapGesture {
-                                            isShowing.toggle()
-                                        }
-                                    Text(index.descritpion)
-                                        .foregroundColor(.white)
-                                        .lineLimit(2)
-                                        .padding(10)
-                                        .font(.prentendardMedium13)
+                        WaterfallGrid(homeViewModel.testDetailPhoto, id: \.id) { data in
+                            Group {
+                                if let url = data.urls {
+                                    ZStack(alignment: .bottomLeading) {
+                                        KFImage(URL(string: url.raw))
+                                            .placeholder {
+                                                ProgressView()
+                                            }
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .onTapGesture {
+                                                isShowing.toggle()
+                                            }
+                                        Text(data.slug)
+                                            .foregroundColor(.white)
+                                            .lineLimit(2)
+                                            .padding(10)
+                                            .font(.prentendardMedium13)
+                                    }
+                                } else {
+                                    Image("Sample1")
                                 }
-                                
                             }
+                        }
                     }
                 }
                 .padding(.horizontal, 20)
                 .customNavigationTitle()
             }
         }
-        .popup(isPopup: $isShowing)
+        .onAppear {
+//             homeViewModel.fetchTestDetailPhotos()
+        }
     }
 }
 
