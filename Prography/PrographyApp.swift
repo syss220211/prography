@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct PrographyApp: App {
+    @StateObject var bookmarkManager = BookmarkManager()
+    
     var body: some Scene {
         WindowGroup {
-//            MainView()
-            userDefaultTest()
+            MainView()
+                .environmentObject(bookmarkManager)
         }
     }
 }

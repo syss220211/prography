@@ -11,6 +11,7 @@ import Kingfisher
 /// 카드 밑에 버튼 3개뷰
 struct CardBottomBtnView: View {
     @ObservedObject var randomCardViewModel: RandomCardViewModel
+    @EnvironmentObject private var zIndex: ZIndexManager
     
     var body: some View {
         HStack {
@@ -27,14 +28,18 @@ struct CardBottomBtnView: View {
             
             // info 보러가기
             Button {
+                // zindex 팝업때만 zindex 조절하기
+                zIndex.index = 0
                 randomCardViewModel.isTapped.toggle()
-                
+
                 // MARK: - 분기 테스트
                 if randomCardViewModel.photoID.isEmpty {
-                    randomCardViewModel.testGetRandomInfo(photoID: randomCardViewModel.randomImage[1].id)
+                    randomCardViewModel.photoID = randomCardViewModel.randomImage[1].id
+                    randomCardViewModel.photoURL = randomCardViewModel.randomImage[1].urls?.raw ?? ""
+                    randomCardViewModel.getRandomInfo(photoID: randomCardViewModel.randomImage[1].id)
                     randomCardViewModel.title = randomCardViewModel.randomImage[1].slug
                 } else {
-                    randomCardViewModel.testGetRandomInfo(photoID: randomCardViewModel.photoID)
+                    randomCardViewModel.getRandomInfo(photoID: randomCardViewModel.photoID)
                 }
                 
                 print("📇 button id \(randomCardViewModel.photoID)")

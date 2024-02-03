@@ -26,6 +26,7 @@ struct PhotoPopupView: View {
                     Button {
                         print("닫기 버튼 tapped")
                         isPopup.toggle()
+                        
                     } label: {
                         Image(systemName: "xmark")
                             .foregroundColor(.black)

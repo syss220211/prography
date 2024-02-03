@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 
 struct userDefaultTest: View {
     @State private var inputText: String = ""
     @State private var photosID: [String] = UserDefaults.standard.stringArray(forKey: "Bookmark") ?? []
     
+    @State private var dictionaryTest: [String: Any] = UserDefaults.standard.dictionary(forKey: "DictionaryTest") ?? [:]
+    @StateObject var bookmark = BookmarkManager()
     var body: some View {
         VStack {
             TextField("Enter a string", text: $inputText)
@@ -21,17 +24,21 @@ struct userDefaultTest: View {
                 addString()
             }
             
-            List(photosID, id: \.self) { storedString in
-                Image(storedString)
+            List(bookmark.savedURL, id: \.self) { storedString in
+                
+                KFImage(URL(string: storedString))
                     .resizable()
                     .scaledToFit()
                     .onTapGesture {
                         removeString(photoID: storedString)
-//                        guard let test = photosID.firstIndex(of: storedString) else { return }
-//                        self.photosID.remove(at: Int(test))
-//                        UserDefaults.standard.set(photosID, forKey: "Bookmark")
                     }
             }
+        }
+        .onAppear {
+            UserDefaults.standard.removePersistentDomain(forName: "BookmarkURL")
+            UserDefaults.standard.removePersistentDomain(forName: "BookmarkID")
+            print(bookmark.savedURL)
+            print(bookmark.savedPhotoID)
         }
         .padding()
     }
