@@ -46,3 +46,18 @@ struct Urls: Codable {
     let raw, full, thumb, regular: String
     let small: String
 }
+
+
+/*
+ struct Photos: Codable, Identifiable, Equatable {
+     let id: String
+     let slug: String
+     let description: String?
+     let urls: Urls?
+     
+     static func == (lhs: Photos, rhs: Photos) -> Bool {
+         // Implement the equality check based on your requirements
+         return lhs.id == rhs.id // assuming 'id' is the identifier property
+     }
+ }
+ */

@@ -22,7 +22,6 @@ struct CardView: View {
                 if !cardImage.isEmpty {
                     Rectangle()
                         .fill(.black)
-                        .frame(width: .infinity)
                         .frame(height: UIScreen.main.bounds.height * 0.5)
 //                    Image(cardImage) // 테스트 이미지
                     KFImage(URL(string: cardImage))
@@ -31,7 +30,6 @@ struct CardView: View {
                         })
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
                         .frame(height: UIScreen.main.bounds.height * 0.5)
                         
                 } else {
@@ -47,7 +45,6 @@ struct CardView: View {
             .padding(10)
             CardBottomBtnView(randomCardViewModel: randomCardViewModel)
         }
-        
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .rotationEffect(.degrees(Double(offset.width / 10)))

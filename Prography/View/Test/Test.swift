@@ -8,17 +8,43 @@
 import SwiftUI
 
 struct Test: View {
-    let number = ["one", "two", "three", "four"]
+    @State private var textFieldText: String = ""
+    @State private var scrollToIndex: Int = 0
     
     var body: some View {
         VStack {
-            ForEach(number, id: \.self) { index in
-                Text(index)
-                    .frame(maxWidth: .infinity)
-                    .background(.white)
-                    .foregroundColor(.red)
+            TextField("Enter a # here...", text: $textFieldText)
+                .frame(height: 55)
+                .border(.gray)
+                .padding(.horizontal)
+                .keyboardType(.numberPad)
+    
+            Button("SCROLL NOW") {
+                withAnimation(.spring()) {
+                    if let index = Int(textFieldText) {
+                        scrollToIndex = index
+                    }
+                }
             }
             
+            ScrollView {
+                ScrollViewReader { proxy in
+                    ForEach(0..<50) { index in
+                        Text("This is item #\(index)")
+                            .font(.headline)
+                            .frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                            .background(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
+                            .padding()
+                            .id(index)
+                    }
+                    .onChange(of: scrollToIndex, perform: { value in
+                        proxy.scrollTo(value, anchor: .center)
+                    })
+                }
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ struct RandomCardView: View {
     @State private var title: String = ""
     @State private var desc: String = ""
     
-    @State private var firstPhotoID: [Result] = []
+//    @State private var firstPhotoID: [Result] = []
     var body: some View {
         NavigationStack {
             Rectangle()
@@ -40,8 +40,13 @@ struct RandomCardView: View {
         }
         .onAppear {
             print("🤡 통신중")
-//            randomCardViewModel.fetchImageData()
-//            randomCardViewModel.fetchBackgroundImage()
+            randomCardViewModel.fetchImageData()
+            randomCardViewModel.fetchBackgroundImage()
+        }
+        .onDisappear {
+            randomCardViewModel.randomImage = []
+            randomCardViewModel.backgroundRandomImage = nil
+            isBookmarked = false
         }
         .customPopupTest1(isBookmarked: $isBookmarked,
                           photo: randomCardViewModel.testRandomInfo.urls?.raw ?? "",
@@ -49,7 +54,9 @@ struct RandomCardView: View {
                           isPopup: $randomCardViewModel.isTapped,
                           title: randomCardViewModel.title,
                           desc: randomCardViewModel.testRandomInfo.description ?? "",
-                          tags: randomCardViewModel.testRandomInfo.tags)
+                          tags: randomCardViewModel.testRandomInfo.tags,
+                          photoID: $randomCardViewModel.photoID,
+                          photoURL: $randomCardViewModel.photoURL)
     }
 }
 

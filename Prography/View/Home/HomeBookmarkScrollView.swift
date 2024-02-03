@@ -6,27 +6,51 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HomeBookmarkScrollView: View {
     
+    @EnvironmentObject var bookmarkManager: BookmarkManager
     let rows = [GridItem(.flexible())]
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: rows) {
-                ForEach(Sample.data, id: \.self) { data in
-                    Image(data.name)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+        VStack(alignment: .leading, spacing: 0) {
+            if !bookmarkManager.savedURL.isEmpty {
+                Spacer().frame(height: 30)
+                Text("북마크")
+                    .font(.pretendardBold20)
+                
+                ScrollView(.horizontal) {
+                    LazyHGrid(rows: rows) {
+                        ForEach(bookmarkManager.savedURL.indices, id: \.self) { data in
+                            VStack{
+    //                            Text("값 있음 테스트 ")
+    //                            Text(bookmarkManager.savedURL[data])
+                                KFImage(URL(string: bookmarkManager.savedURL[data]))
+                                    .placeholder {
+                                        ProgressView()
+                                    }
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            }
+                        }
+                    }
+                    .padding(.vertical, 12)
                 }
+                .frame(maxHeight: UIScreen.main.bounds.height * 0.2)
+            } else {
+                EmptyView()
             }
-            .padding(.vertical, 12)
         }
-        .frame(maxHeight: UIScreen.main.bounds.height * 0.3)
+        
+        .onAppear {
+            print(bookmarkManager.savedURL)
+        }
     }
 }
 
 #Preview {
     HomeBookmarkScrollView()
+        .environmentObject(BookmarkManager())
 }

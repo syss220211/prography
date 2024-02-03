@@ -12,6 +12,10 @@ import Alamofire
 
 class HomeViewModel: ObservableObject {
     private let searchManager = SearchObjectManager.shared
+    private let accessKey = "BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s"
+    
+    // 추가
+    @Published var moreData: [Photos] = []
     
     @Published var testDetailPhoto: [Photos] = []
     @Published var testDetailInfo: PhotoDetail = .init(id: UUID().uuidString,
@@ -28,8 +32,6 @@ class HomeViewModel: ObservableObject {
     
     // Detail 정보값 테스트
     func testGetDetailInfo(photoID: String) {
-        // https://api.unsplash.com/photos/s0A8sa9oasY?client_id=BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s
-        // s0A8sa9oasY
         let url = "https://api.unsplash.com/photos/\(photoID)?client_id=BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s"
         
         AF.request(url).validate().responseDecodable(of: PhotoDetail.self) { response in
@@ -45,13 +47,31 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+
+    // 무한 스 크 롤
+    func loadMoreData(completion: @escaping([Photos]) -> Void) {
+        let url = "https://api.unsplash.com/photos?client_id=\(accessKey)"
+        
+        AF.request(url).validate().responseDecodable(of: [Photos].self) { response in
+            switch response.result {
+            case .success(let jsonResult):
+                DispatchQueue.main.async {
+                    self.moreData = jsonResult
+                }
+            case .failure(let error):
+                print("🥶디테일 함수 실패🥶")
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 struct HomeView: View {
-    
+    @EnvironmentObject private var zIndex: ZIndexManager
     @ObservedObject var homeViewModel = HomeViewModel()
-    // popup
+    @EnvironmentObject var bookmarkManager: BookmarkManager
     
+    // popup
     @State private var isPopup: Bool = false
     @State private var isBookmarked: Bool = false
     @State private var photoID: String = ""
@@ -59,20 +79,19 @@ struct HomeView: View {
     @State private var title: String = ""
     @State private var desc: String = ""
     
+    // 무한 스크롤
+    @State private var isFinished = false
+    
     var body: some View {
-        ZStack {
+//        ZStack {
             NavigationStack {
                 ScrollView {
                     NavigationRectangleView()
-                    Spacer().frame(height: 30)
                     VStack(alignment: .leading, spacing: 20) {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("북마크")
-                                .font(.pretendardBold20)
-                            HomeBookmarkScrollView()
-                        }
+                        HomeBookmarkScrollView()
+                            .environmentObject(bookmarkManager)
                         
-                        VStack(alignment: .leading, spacing: 20) {
+                        VStack(alignment: .leading) {
                             Text("최신이미지")
                                 .font(.pretendardBold20)
                             
@@ -95,9 +114,9 @@ struct HomeView: View {
                                                     self.photo = url.raw
                                                     
                                                     homeViewModel.testGetDetailInfo(photoID: self.photoID)
-                                                    
+                                                    // zindex 설정추가
+                                                    zIndex.index = 0
                                                 }
-                                                
                                             // 여기에서 디테일 통신하기
                                             Text(data.slug)
                                                 .foregroundColor(.white)
@@ -122,16 +141,18 @@ struct HomeView: View {
                               isPopup: $isPopup,
                               title: self.title,
                               desc: self.desc,
-                              tags: homeViewModel.testDetailInfo.tags)
-        }
+                              tags: homeViewModel.testDetailInfo.tags,
+                              photoID: $photoID,
+                              photoURL: $photo)
+//        }
         .onAppear {
-//             homeViewModel.fetchTestDetailPhotos()
-            print(homeViewModel.testDetailPhoto)
+             homeViewModel.fetchTestDetailPhotos()
         }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(BookmarkManager())
 }
 
