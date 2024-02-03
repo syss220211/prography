@@ -14,7 +14,11 @@ class HomeViewModel: ObservableObject {
     private let searchManager = SearchObjectManager.shared
     
     @Published var testDetailPhoto: [Photos] = []
-    @Published var testDetailInfo: PhotoDetail = .init(id: UUID().uuidString, tags: [], user: .init(username: "nothing"))
+    @Published var testDetailInfo: PhotoDetail = .init(id: UUID().uuidString,
+                                                       description: "",
+                                                       tags: [],
+                                                       urls: nil,
+                                                       user: .init(username: "nothing"))
     
     func fetchTestDetailPhotos() {
         searchManager.testEscapingGetDetailPhoto { photos in

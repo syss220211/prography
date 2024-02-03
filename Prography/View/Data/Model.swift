@@ -12,8 +12,9 @@ import SwiftUI
 struct Result: Codable, Identifiable {
     let id: String
     let urls: Urls?
+    let slug: String
     
-    static let emptyData = Result(id: "통신 실패.", urls: nil)
+    static let emptyData = Result(id: "통신 실패.", urls: nil, slug: "")
 }
 
 // 홈뷰에서 최신 이미지 불러올때 사용하는 모델
@@ -27,7 +28,9 @@ struct Photos: Codable, Identifiable {
 // 사진 디테일을 볼때 사용하는 모델
 struct PhotoDetail: Codable, Identifiable {
     let id: String
+    let description: String?
     let tags: [Tag]
+    let urls: Urls?
     let user: User
 }
 
