@@ -36,10 +36,10 @@ struct CardBottomBtnView: View {
                 if randomCardViewModel.photoID.isEmpty {
                     randomCardViewModel.photoID = randomCardViewModel.randomImage[1].id
                     randomCardViewModel.photoURL = randomCardViewModel.randomImage[1].urls?.raw ?? ""
-                    randomCardViewModel.testGetRandomInfo(photoID: randomCardViewModel.randomImage[1].id)
+                    randomCardViewModel.getRandomInfo(photoID: randomCardViewModel.randomImage[1].id)
                     randomCardViewModel.title = randomCardViewModel.randomImage[1].slug
                 } else {
-                    randomCardViewModel.testGetRandomInfo(photoID: randomCardViewModel.photoID)
+                    randomCardViewModel.getRandomInfo(photoID: randomCardViewModel.photoID)
                 }
                 
                 print("📇 button id \(randomCardViewModel.photoID)")

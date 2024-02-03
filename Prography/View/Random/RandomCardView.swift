@@ -12,14 +12,7 @@ import Kingfisher
 struct RandomCardView: View {
     @StateObject private var randomCardViewModel = RandomCardViewModel()
     @State private var isBookmarked: Bool = false
-//    @State private var isPopup: Bool = false
     
-    @State private var photo: String = ""
-    @State private var userName: String = ""
-    @State private var title: String = ""
-    @State private var desc: String = ""
-    
-//    @State private var firstPhotoID: [Result] = []
     var body: some View {
         NavigationStack {
             Rectangle()
@@ -39,7 +32,6 @@ struct RandomCardView: View {
             Spacer()
         }
         .onAppear {
-            print("🤡 통신중")
             randomCardViewModel.fetchImageData()
             randomCardViewModel.fetchBackgroundImage()
         }
@@ -48,13 +40,13 @@ struct RandomCardView: View {
             randomCardViewModel.backgroundRandomImage = nil
             isBookmarked = false
         }
-        .customPopupTest1(isBookmarked: $isBookmarked,
-                          photo: randomCardViewModel.testRandomInfo.urls?.raw ?? "",
-                          userName: randomCardViewModel.testRandomInfo.user.username,
+        .customPopup(isBookmarked: $isBookmarked,
+                          photo: randomCardViewModel.randomPhotoInfo.urls?.raw ?? "",
+                          userName: randomCardViewModel.randomPhotoInfo.user.username,
                           isPopup: $randomCardViewModel.isTapped,
                           title: randomCardViewModel.title,
-                          desc: randomCardViewModel.testRandomInfo.description ?? "",
-                          tags: randomCardViewModel.testRandomInfo.tags,
+                          desc: randomCardViewModel.randomPhotoInfo.description ?? "",
+                          tags: randomCardViewModel.randomPhotoInfo.tags,
                           photoID: $randomCardViewModel.photoID,
                           photoURL: $randomCardViewModel.photoURL)
     }

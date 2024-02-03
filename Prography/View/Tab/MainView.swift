@@ -29,39 +29,7 @@ struct MainView: View {
                         .environmentObject(zIndex)
                 }
             }
-            
-            
         }
-//        ZStack {
-//            VStack {
-//                switch selectedIndex {
-//                case 0:
-//                    HomeView()
-//                default:
-//                    RandomCardView()
-//                }
-//                
-//                
-//                HStack(spacing: 100) {
-//                    Button(action: {
-//                        selectedIndex = 0
-//                    }, label: {
-//                        Image("Home")
-//                            .opacity(tabBarViewModel.selected == .home ? 1.0 : 0.5)
-//                    })
-//                    
-//                    Button(action: {
-//                        selectedIndex = 1
-//                    }, label: {
-//                        Image("Bookmark")
-//                            .opacity(tabBarViewModel.selected == .card ? 1.0 : 0.5)
-//                    })
-//                }
-//                .frame(maxWidth: .infinity)
-//                .frame(height: UIScreen.main.bounds.height * 0.07)
-//                .background(.black)
-//            }
-//        }
     }
 }
 
