@@ -10,7 +10,7 @@ import SwiftUI
 
 struct userDefaultTest: View {
     @State private var inputText: String = ""
-    @State private var storedStrings: [String] = UserDefaults.standard.stringArray(forKey: "StoredStrings") ?? []
+    @State private var photosID: [String] = UserDefaults.standard.stringArray(forKey: "Bookmark") ?? []
     
     var body: some View {
         VStack {
@@ -21,22 +21,33 @@ struct userDefaultTest: View {
                 addString()
             }
             
-            List(storedStrings, id: \.self) { storedString in
-                Text(storedString)
+            List(photosID, id: \.self) { storedString in
+                Image(storedString)
+                    .resizable()
+                    .scaledToFit()
+                    .onTapGesture {
+                        removeString(photoID: storedString)
+//                        guard let test = photosID.firstIndex(of: storedString) else { return }
+//                        self.photosID.remove(at: Int(test))
+//                        UserDefaults.standard.set(photosID, forKey: "Bookmark")
+                    }
             }
         }
         .padding()
     }
     
     private func addString() {
-        // Append the input text to the array
-        storedStrings.append(inputText)
-        
-        // Save the updated array to UserDefaults
-        UserDefaults.standard.set(storedStrings, forKey: "StoredStrings")
-        
-        // Clear the input text
+        photosID.append(inputText)
+        UserDefaults.standard.set(photosID, forKey: "Bookmark")
         inputText = ""
+    }
+    
+    private func removeString(photoID: String) {
+        guard let removeID = photosID.firstIndex(of: photoID) else { return }
+        photosID.remove(at: removeID)
+        
+        // 해당 배열 다시 저장
+        UserDefaults.standard.set(photosID, forKey: "Bookmark")
     }
 }
 

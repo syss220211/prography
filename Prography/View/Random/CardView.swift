@@ -45,9 +45,11 @@ struct CardView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(10)
-            CardBottomBtnView()
+            CardBottomBtnView(randomCardViewModel: randomCardViewModel)
         }
+        
         .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .rotationEffect(.degrees(Double(offset.width / 10)))
         .offset(x: offset.width, y: offset.height)
         .gesture(
@@ -63,7 +65,7 @@ struct CardView: View {
                     }
                 }
         )
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(radius: 10)
     }
     
     private func handleSwipe(offsetWidth: CGFloat) {
@@ -91,6 +93,11 @@ struct CardView: View {
         case .right:
             print("🔥swipe right, 북마크 후에 다음 사진으로 넘어가기")
         }
+        
+        // MARK: - info버튼에 값 넘기기
+        randomCardViewModel.photoURL = randomCardViewModel.randomImage[0].urls?.raw ?? ""
+        randomCardViewModel.title = randomCardViewModel.randomImage[0].slug
+        randomCardViewModel.photoID = randomCardViewModel.randomImage[0].id
         
         if let backgroundImage = randomCardViewModel.backgroundRandomImage {
             randomCardViewModel.randomImage[1] = randomCardViewModel.randomImage[0]

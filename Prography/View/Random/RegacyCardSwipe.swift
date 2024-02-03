@@ -10,7 +10,7 @@ import SwiftUI
 struct CardSample2View: View {
     var initialOffsetY: CGFloat = 5
     var initialRotationAngle: Double = 0.5
-    
+    @StateObject var randomViewModel = RandomCardViewModel()
     @State private var offset = CGSize.zero
     @State private var isRemoved = false
     
@@ -22,32 +22,28 @@ struct CardSample2View: View {
                 .frame(maxHeight: 1)
             Spacer()
             ZStack {
-                CardTView()
+                CardView(cardImage: "", randomCardViewModel: randomViewModel)
                     .padding(20)
             }
-            .shadow(radius: 10)
-            .navigationBarTitle("", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("Logo")
-                }
-            }
-            .rotationEffect(.degrees(Double(offset.width / 40)))
-            .gesture(
-                DragGesture()
-                    .onChanged { gesture in
-                        offset = gesture.translation
-                        withAnimation {
-                            handleCradDragging(offset)
-                        }
-                    }
-                    .onEnded { gesture in
-                        withAnimation {
-                            handleSwipe(offsetWidth: offset.width)
-                        }
-                    }
-            )
-            .opacity(isRemoved ? 0 : 1)
+            
+            .customNavigationTitle()
+            .rotationEffect(.degrees(Double(offset.width / 10)))
+//            .offset(x: offset.width, y: offset.height)
+//            .gesture(
+//                DragGesture()
+//                    .onChanged { gesture in
+//                        offset = gesture.translation
+//                        withAnimation {
+//                            handleCradDragging(offset)
+//                        }
+//                    }
+//                    .onEnded { gesture in
+//                        withAnimation {
+//                            handleSwipe(offsetWidth: offset.width)
+//                        }
+//                    }
+//            )
+//            .opacity(isRemoved ? 0 : 1)
             Spacer()
         }
         
@@ -105,7 +101,7 @@ struct CardSample2View: View {
 
 struct CardTView: View {
     private let searchManager = SearchObjectManager.shared
-    
+    @StateObject var randomViewModel = RandomCardViewModel()
     var body: some View {
         VStack(spacing: 10) {
 //            KFImage(URL(string: searchObjectManager.randomResults?.urls?.raw ?? ""))
@@ -115,7 +111,7 @@ struct CardTView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(15)
                         
-            CardBottomBtnView()
+            CardBottomBtnView(randomCardViewModel: randomViewModel)
         }
         .frame(maxWidth: .infinity)
         .frame(height: UIScreen.main.bounds.height * 0.5)
