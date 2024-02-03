@@ -28,12 +28,6 @@
 - 팝업 시 애니메이션을 추가하였습니다.
 - ProgressView()가 적용되어 있습니다.
 
-| **`Swipe 북마크`** | **`팝업 애니메이션`** | **`좌우 Swipe`** |
-| ---- | ---- | ---- |
-| <img src="https://blogfiles.pstatic.net/MjAyNDAyMDRfMjQg/MDAxNzA3MDAzNTU4NzA2.lEOJzxtzfUexvDFfoz4nRGTPmPWeGZXobic--y3F9UMg.IK1xVN0Vauj-aZaDPjWTjafJOk0Mn-tBekFiTirT6Vsg.GIF.for_myeon/ddddddddddddddddd.gif" width="143" height="300"> | <img src="https://private-user-images.githubusercontent.com/110394722/302067181-8b22340e-cf48-40eb-b429-a72c7f5049d8.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDcwMDMxMjcsIm5iZiI6MTcwNzAwMjgyNywicGF0aCI6Ii8xMTAzOTQ3MjIvMzAyMDY3MTgxLThiMjIzNDBlLWNmNDgtNDBlYi1iNDI5LWE3MmM3ZjUwNDlkOC5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDIwM1QyMzI3MDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mZmQ2MGYwYjdkNzU2OTgyYjM5ZGExNzc4NGU1ZTZhOGFjMDQ0NTdjZWQ5OTNjNTIxYmY3ZDBkODJmNDkxNDk4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.-0raBmVizSBaBritWaMwRiK6p7BgkIVYk1VK5wR7Cvg" width="143" height="300"> | <img src="https://blog.kakaocdn.net/dn/sVg82/btsEoJEEJQu/VuzPkX18gSborJ2Hedg3F1/img.gif" width="143" height="300"> |
-|  |  |  |
-
-
 
 <br>
 
