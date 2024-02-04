@@ -11,15 +11,11 @@ import Kingfisher
 struct PhotoGridView: View {
     @EnvironmentObject var zIndex: ZIndexManager
     @ObservedObject var homeViewModel: HomeViewModel
+    
     let photos: [Photos]
-    let onTileCallback: ((Photos) -> Void)?
     
-    // 추가
-    @State private var loadedPhotos: [[Photos]] = []
-    
-    init(_ pictures: [Photos], onTileAppear: ((Photos) -> Void)? = nil, homeViewModel: HomeViewModel) {
+    init(_ pictures: [Photos], homeViewModel: HomeViewModel) {
         self.photos = pictures
-        self.onTileCallback = onTileAppear
         self.homeViewModel = homeViewModel
     }
     
@@ -40,10 +36,11 @@ struct PhotoGridView: View {
                 }
             }
         }
+        
         result.append(list1)
         result.append(list2)
-        return result
         
+        return result
     }
     
     var body: some View {
@@ -61,7 +58,7 @@ struct PhotoGridView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                            // 여기에서 디테일 통신하기
+                            
                             Text(photo.slug)
                                 .foregroundColor(.white)
                                 .lineLimit(2)
@@ -90,7 +87,7 @@ struct PhotoGridView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                            // 여기에서 디테일 통신하기
+                            
                             Text(photo.slug)
                                 .foregroundColor(.white)
                                 .lineLimit(2)
@@ -113,12 +110,4 @@ struct PhotoGridView: View {
         }
             
     }
-
-    func onAppearClosure(_ photo: Photos) {
-        guard let onTileCallback = onTileCallback else {
-            return
-        }
-        onTileCallback(photo)
-    }
-    
 }
