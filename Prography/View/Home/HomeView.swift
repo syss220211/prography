@@ -83,42 +83,6 @@ struct HomeView: View {
                             Text("최신이미지")
                                 .font(.pretendardBold20)
                             PhotoGridView(homeViewModel.photoForDetail, homeViewModel: homeViewModel)
-                            
-                            // MARK: - 라이브러리랑 커스텀 중에 선택
-//                            WaterfallGrid(homeViewModel.photoForDetail, id: \.id) { data in
-//                                Group {
-//                                    if let url = data.urls {
-//                                        ZStack(alignment: .bottomLeading) {
-//                                            KFImage(URL(string: url.raw))
-//                                                .placeholder {
-//                                                    ProgressView()
-//                                                }
-//                                                .resizable()
-//                                                .aspectRatio(contentMode: .fit)
-//                                                .clipShape(RoundedRectangle(cornerRadius: 10))
-//                                                .onTapGesture {
-//                                                    isPopup.toggle()
-//                                                    self.photoID = data.id
-//                                                    self.title = data.slug
-//                                                    self.desc = data.description ?? ""
-//                                                    self.photo = url.raw
-//                                                    
-//                                                    homeViewModel.testGetDetailInfo(photoID: self.photoID)
-//                                                    // zindex 설정추가
-//                                                    zIndex.index = 0
-//                                                }
-//                                            // 여기에서 디테일 통신하기
-//                                            Text(data.slug)
-//                                                .foregroundColor(.white)
-//                                                .lineLimit(2)
-//                                                .padding(10)
-//                                                .font(.prentendardMedium13)
-//                                        }
-//                                    } else {
-//                                        Image("Sample1")
-//                                    }
-//                                }
-//                            }
                         }
                     }
                     .padding(.horizontal, 20)
@@ -146,3 +110,41 @@ struct HomeView: View {
         .environmentObject(BookmarkManager())
 }
 
+/*
+ // MARK: - 라이브러리
+ WaterfallGrid(homeViewModel.photoForDetail, id: \.id) { data in
+     Group {
+         if let url = data.urls {
+             ZStack(alignment: .bottomLeading) {
+                 KFImage(URL(string: url.raw))
+                     .placeholder {
+                         ProgressView()
+                     }
+                     .resizable()
+                     .aspectRatio(contentMode: .fit)
+                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                     .onTapGesture {
+                         isPopup.toggle()
+                         self.photoID = data.id
+                         self.title = data.slug
+                         self.desc = data.description ?? ""
+                         self.photo = url.raw
+                         
+                         homeViewModel.getDetailInfo(photoID: data.id)
+                         
+                         // zindex 설정추가
+                         zIndex.index = 0
+                     }
+                 // 여기에서 디테일 통신하기
+                 Text(data.slug)
+                     .foregroundColor(.white)
+                     .lineLimit(2)
+                     .padding(10)
+                     .font(.prentendardMedium13)
+             }
+         } else {
+             Image("Sample1")
+         }
+     }
+ }
+ */
