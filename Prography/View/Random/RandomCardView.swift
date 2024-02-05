@@ -38,6 +38,7 @@ struct RandomCardView: View {
         .onDisappear {
             randomCardViewModel.randomImage = []
             randomCardViewModel.backgroundRandomImage = nil
+            randomCardViewModel.photoID = ""
             isBookmarked = false
         }
         .customPopup(isBookmarked: $isBookmarked,

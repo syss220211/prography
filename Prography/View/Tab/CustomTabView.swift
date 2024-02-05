@@ -27,7 +27,7 @@ struct CustomTabView: View {
             Button(action: {
                 tabBarViewModel.selected = .card
             }, label: {
-                Image("Bookmark")
+                Image("BookmarkB")
                     .opacity(tabBarViewModel.selected == .card ? 1.0 : 0.5)
             })
         }

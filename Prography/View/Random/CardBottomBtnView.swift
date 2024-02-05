@@ -20,7 +20,7 @@ struct CardBottomBtnView: View {
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color(UIColor.systemGray4), lineWidth: 1))
                 .frame(maxWidth: .infinity)
-            Image("Bookmark")
+            Image("BookmarkB")
                 .padding(20)
                 .background(Color.main)
                 .clipShape(RoundedRectangle(cornerRadius: 50))
