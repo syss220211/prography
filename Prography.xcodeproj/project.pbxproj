@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D50E2F802B6A6A6000B7FE46 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E2F7F2B6A6A6000B7FE46 /* UserDefaultManager.swift */; };
+		D50E2F832B6A8C5A00B7FE46 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D50E2F822B6A8C5A00B7FE46 /* Alamofire */; };
+		D50E2F932B6B38C800B7FE46 /* PhotoPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E2F922B6B38C800B7FE46 /* PhotoPopupView.swift */; };
+		D50E2F982B6B46C200B7FE46 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E2F972B6B46C200B7FE46 /* View+Extension.swift */; };
+		D50E2F9C2B6B873200B7FE46 /* RandomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E2F9B2B6B873200B7FE46 /* RandomCardView.swift */; };
+		D56B53D12B6CFD8E0070CD13 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D02B6CFD8E0070CD13 /* CommonView.swift */; };
+		D56B53D32B6CFDF30070CD13 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D22B6CFDF30070CD13 /* Font.swift */; };
+		D56B53D52B6D00F00070CD13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D42B6D00F00070CD13 /* CardView.swift */; };
+		D56B53D72B6D2E0E0070CD13 /* CustomPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D62B6D2E0E0070CD13 /* CustomPopView.swift */; };
+		D5BE63222B6EABA900A15C8B /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */; };
+		D5BE63252B6EEB9F00A15C8B /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */; };
+		D5D53AF92B68039500BF0F9E /* PrographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53AF82B68039500BF0F9E /* PrographyApp.swift */; };
+		D5D53AFD2B68039600BF0F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D53AFC2B68039600BF0F9E /* Assets.xcassets */; };
+		D5D53B002B68039600BF0F9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D53AFF2B68039600BF0F9E /* Preview Assets.xcassets */; };
+		D5D53B0A2B68039700BF0F9E /* PrographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B092B68039700BF0F9E /* PrographyTests.swift */; };
+		D5D53B142B68039700BF0F9E /* PrographyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B132B68039700BF0F9E /* PrographyUITests.swift */; };
+		D5D53B162B68039700BF0F9E /* PrographyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B152B68039700BF0F9E /* PrographyUITestsLaunchTests.swift */; };
+		D5D53B252B68067400BF0F9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B242B68067400BF0F9E /* MainView.swift */; };
+		D5D53B272B6807A300BF0F9E /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B262B6807A300BF0F9E /* TabBarItem.swift */; };
+		D5D53B292B68088400BF0F9E /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B282B68088400BF0F9E /* CustomTabView.swift */; };
+		D5D53B332B68206600BF0F9E /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5D53B322B68206600BF0F9E /* Pretendard-Bold.otf */; };
+		D5D53B352B68207000BF0F9E /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5D53B342B68207000BF0F9E /* Pretendard-Medium.otf */; };
+		D5D53B382B6820BF00BF0F9E /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B372B6820BF00BF0F9E /* FontSystem.swift */; };
+		D5D53B4D2B68BEE000BF0F9E /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B4C2B68BEE000BF0F9E /* SearchManager.swift */; };
+		D5D53B502B68BF2100BF0F9E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B4F2B68BF2100BF0F9E /* Model.swift */; };
+		D5D53B572B68F20800BF0F9E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D5D53B562B68F20800BF0F9E /* Kingfisher */; };
+		D5D53B5A2B68F5B200BF0F9E /* LazyCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = D5D53B592B68F5B200BF0F9E /* LazyCollectionView */; };
+		D5D53B602B69096A00BF0F9E /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = D5D53B5F2B69096A00BF0F9E /* WaterfallGrid */; };
+		D5D53B642B69242600BF0F9E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B632B69242600BF0F9E /* HomeView.swift */; };
+		D5D53B662B69256800BF0F9E /* HomeBookmarkScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B652B69256800BF0F9E /* HomeBookmarkScrollView.swift */; };
+		D5D53B6C2B69609700BF0F9E /* CardBottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B6B2B69609700BF0F9E /* CardBottomBtnView.swift */; };
+		D5D53B6E2B6962AE00BF0F9E /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53B6D2B6962AE00BF0F9E /* ColorSystem.swift */; };
+		D5F9DD4A2B6A45380095F57E /* RandomCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9DD492B6A45380095F57E /* RandomCardViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5D53B062B68039700BF0F9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5D53AED2B68039500BF0F9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5D53AF42B68039500BF0F9E;
+			remoteInfo = Prography;
+		};
+		D5D53B102B68039700BF0F9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5D53AED2B68039500BF0F9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5D53AF42B68039500BF0F9E;
+			remoteInfo = Prography;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D50E2F7F2B6A6A6000B7FE46 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		D50E2F922B6B38C800B7FE46 /* PhotoPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupView.swift; sourceTree = "<group>"; };
+		D50E2F972B6B46C200B7FE46 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D50E2F9B2B6B873200B7FE46 /* RandomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCardView.swift; sourceTree = "<group>"; };
+		D56B53D02B6CFD8E0070CD13 /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
+		D56B53D22B6CFDF30070CD13 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		D56B53D42B6D00F00070CD13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D56B53D62B6D2E0E0070CD13 /* CustomPopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopView.swift; sourceTree = "<group>"; };
+		D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridView.swift; sourceTree = "<group>"; };
+		D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
+		D5D53AF52B68039500BF0F9E /* Prography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prography.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D53AF82B68039500BF0F9E /* PrographyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrographyApp.swift; sourceTree = "<group>"; };
+		D5D53AFC2B68039600BF0F9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5D53AFF2B68039600BF0F9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D5D53B052B68039700BF0F9E /* PrographyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrographyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D53B092B68039700BF0F9E /* PrographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrographyTests.swift; sourceTree = "<group>"; };
+		D5D53B0F2B68039700BF0F9E /* PrographyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrographyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D53B132B68039700BF0F9E /* PrographyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrographyUITests.swift; sourceTree = "<group>"; };
+		D5D53B152B68039700BF0F9E /* PrographyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrographyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D5D53B242B68067400BF0F9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D5D53B262B6807A300BF0F9E /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		D5D53B282B68088400BF0F9E /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		D5D53B322B68206600BF0F9E /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		D5D53B342B68207000BF0F9E /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		D5D53B362B68209400BF0F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5D53B372B6820BF00BF0F9E /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
+		D5D53B4C2B68BEE000BF0F9E /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		D5D53B4F2B68BF2100BF0F9E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D5D53B632B69242600BF0F9E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D5D53B652B69256800BF0F9E /* HomeBookmarkScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookmarkScrollView.swift; sourceTree = "<group>"; };
+		D5D53B6B2B69609700BF0F9E /* CardBottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBottomBtnView.swift; sourceTree = "<group>"; };
+		D5D53B6D2B6962AE00BF0F9E /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
+		D5F9DD492B6A45380095F57E /* RandomCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCardViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5D53AF22B68039500BF0F9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D53B602B69096A00BF0F9E /* WaterfallGrid in Frameworks */,
+				D50E2F832B6A8C5A00B7FE46 /* Alamofire in Frameworks */,
+				D5D53B572B68F20800BF0F9E /* Kingfisher in Frameworks */,
+				D5D53B5A2B68F5B200BF0F9E /* LazyCollectionView in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D53B022B68039700BF0F9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D53B0C2B68039700BF0F9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D50E2F7E2B6A6A4B00B7FE46 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D50E2F7F2B6A6A6000B7FE46 /* UserDefaultManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D50E2F8B2B6AC25D00B7FE46 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D50E2F922B6B38C800B7FE46 /* PhotoPopupView.swift */,
+				D56B53D62B6D2E0E0070CD13 /* CustomPopView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D56B53CF2B6CFD4A0070CD13 /* Extnesion+Design */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B6D2B6962AE00BF0F9E /* ColorSystem.swift */,
+				D50E2F972B6B46C200B7FE46 /* View+Extension.swift */,
+				D56B53D02B6CFD8E0070CD13 /* CommonView.swift */,
+				D56B53D22B6CFDF30070CD13 /* Font.swift */,
+			);
+			path = "Extnesion+Design";
+			sourceTree = "<group>";
+		};
+		D5BE63232B6EEB8D00A15C8B /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		D5BE63262B6EEF6600A15C8B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B312B68202200BF0F9E /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D5D53AEC2B68039500BF0F9E = {
+			isa = PBXGroup;
+			children = (
+				D5D53AF72B68039500BF0F9E /* Prography */,
+				D5D53B082B68039700BF0F9E /* PrographyTests */,
+				D5D53B122B68039700BF0F9E /* PrographyUITests */,
+				D5D53AF62B68039500BF0F9E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5D53AF62B68039500BF0F9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53AF52B68039500BF0F9E /* Prography.app */,
+				D5D53B052B68039700BF0F9E /* PrographyTests.xctest */,
+				D5D53B0F2B68039700BF0F9E /* PrographyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5D53AF72B68039500BF0F9E /* Prography */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53AF82B68039500BF0F9E /* PrographyApp.swift */,
+				D5D53B362B68209400BF0F9E /* Info.plist */,
+				D5D53AFC2B68039600BF0F9E /* Assets.xcassets */,
+				D5BE63262B6EEF6600A15C8B /* Resources */,
+				D50E2F7E2B6A6A4B00B7FE46 /* Service */,
+				D5D53B2C2B681E1700BF0F9E /* Network */,
+				D56B53CF2B6CFD4A0070CD13 /* Extnesion+Design */,
+				D5D53B4E2B68BF1100BF0F9E /* Data */,
+				D5D53B222B68065F00BF0F9E /* View */,
+				D5D53AFE2B68039600BF0F9E /* Preview Content */,
+			);
+			path = Prography;
+			sourceTree = "<group>";
+		};
+		D5D53AFE2B68039600BF0F9E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53AFF2B68039600BF0F9E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D5D53B082B68039700BF0F9E /* PrographyTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B092B68039700BF0F9E /* PrographyTests.swift */,
+			);
+			path = PrographyTests;
+			sourceTree = "<group>";
+		};
+		D5D53B122B68039700BF0F9E /* PrographyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B132B68039700BF0F9E /* PrographyUITests.swift */,
+				D5D53B152B68039700BF0F9E /* PrographyUITestsLaunchTests.swift */,
+			);
+			path = PrographyUITests;
+			sourceTree = "<group>";
+		};
+		D5D53B222B68065F00BF0F9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5BE63232B6EEB8D00A15C8B /* Bookmark */,
+				D5D53B2B2B681E1200BF0F9E /* Random */,
+				D5D53B2A2B681E0A00BF0F9E /* Home */,
+				D50E2F8B2B6AC25D00B7FE46 /* Detail */,
+				D5D53B232B68066500BF0F9E /* Tab */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5D53B232B68066500BF0F9E /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B262B6807A300BF0F9E /* TabBarItem.swift */,
+				D5D53B242B68067400BF0F9E /* MainView.swift */,
+				D5D53B282B68088400BF0F9E /* CustomTabView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		D5D53B2A2B681E0A00BF0F9E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B632B69242600BF0F9E /* HomeView.swift */,
+				D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */,
+				D5D53B652B69256800BF0F9E /* HomeBookmarkScrollView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D5D53B2B2B681E1200BF0F9E /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				D50E2F9B2B6B873200B7FE46 /* RandomCardView.swift */,
+				D5F9DD492B6A45380095F57E /* RandomCardViewModel.swift */,
+				D56B53D42B6D00F00070CD13 /* CardView.swift */,
+				D5D53B6B2B69609700BF0F9E /* CardBottomBtnView.swift */,
+			);
+			path = Random;
+			sourceTree = "<group>";
+		};
+		D5D53B2C2B681E1700BF0F9E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B4C2B68BEE000BF0F9E /* SearchManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D5D53B312B68202200BF0F9E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B342B68207000BF0F9E /* Pretendard-Medium.otf */,
+				D5D53B322B68206600BF0F9E /* Pretendard-Bold.otf */,
+				D5D53B372B6820BF00BF0F9E /* FontSystem.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		D5D53B4E2B68BF1100BF0F9E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D5D53B4F2B68BF2100BF0F9E /* Model.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5D53AF42B68039500BF0F9E /* Prography */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D53B192B68039700BF0F9E /* Build configuration list for PBXNativeTarget "Prography" */;
+			buildPhases = (
+				D5D53AF12B68039500BF0F9E /* Sources */,
+				D5D53AF22B68039500BF0F9E /* Frameworks */,
+				D5D53AF32B68039500BF0F9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Prography;
+			packageProductDependencies = (
+				D5D53B562B68F20800BF0F9E /* Kingfisher */,
+				D5D53B592B68F5B200BF0F9E /* LazyCollectionView */,
+				D5D53B5F2B69096A00BF0F9E /* WaterfallGrid */,
+				D50E2F822B6A8C5A00B7FE46 /* Alamofire */,
+			);
+			productName = Prography;
+			productReference = D5D53AF52B68039500BF0F9E /* Prography.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5D53B042B68039700BF0F9E /* PrographyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D53B1C2B68039700BF0F9E /* Build configuration list for PBXNativeTarget "PrographyTests" */;
+			buildPhases = (
+				D5D53B012B68039700BF0F9E /* Sources */,
+				D5D53B022B68039700BF0F9E /* Frameworks */,
+				D5D53B032B68039700BF0F9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5D53B072B68039700BF0F9E /* PBXTargetDependency */,
+			);
+			name = PrographyTests;
+			productName = PrographyTests;
+			productReference = D5D53B052B68039700BF0F9E /* PrographyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D5D53B0E2B68039700BF0F9E /* PrographyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D53B1F2B68039700BF0F9E /* Build configuration list for PBXNativeTarget "PrographyUITests" */;
+			buildPhases = (
+				D5D53B0B2B68039700BF0F9E /* Sources */,
+				D5D53B0C2B68039700BF0F9E /* Frameworks */,
+				D5D53B0D2B68039700BF0F9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5D53B112B68039700BF0F9E /* PBXTargetDependency */,
+			);
+			name = PrographyUITests;
+			productName = PrographyUITests;
+			productReference = D5D53B0F2B68039700BF0F9E /* PrographyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5D53AED2B68039500BF0F9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					D5D53AF42B68039500BF0F9E = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					D5D53B042B68039700BF0F9E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = D5D53AF42B68039500BF0F9E;
+					};
+					D5D53B0E2B68039700BF0F9E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = D5D53AF42B68039500BF0F9E;
+					};
+				};
+			};
+			buildConfigurationList = D5D53AF02B68039500BF0F9E /* Build configuration list for PBXProject "Prography" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5D53AEC2B68039500BF0F9E;
+			packageReferences = (
+				D5D53B552B68F20800BF0F9E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D5D53B582B68F5B200BF0F9E /* XCRemoteSwiftPackageReference "swiftui-lazycollectionview" */,
+				D5D53B5E2B69096A00BF0F9E /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+				D50E2F812B6A8C5A00B7FE46 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			productRefGroup = D5D53AF62B68039500BF0F9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5D53AF42B68039500BF0F9E /* Prography */,
+				D5D53B042B68039700BF0F9E /* PrographyTests */,
+				D5D53B0E2B68039700BF0F9E /* PrographyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5D53AF32B68039500BF0F9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D53B002B68039600BF0F9E /* Preview Assets.xcassets in Resources */,
+				D5D53B332B68206600BF0F9E /* Pretendard-Bold.otf in Resources */,
+				D5D53AFD2B68039600BF0F9E /* Assets.xcassets in Resources */,
+				D5D53B352B68207000BF0F9E /* Pretendard-Medium.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D53B032B68039700BF0F9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D53B0D2B68039700BF0F9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5D53AF12B68039500BF0F9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D53B6E2B6962AE00BF0F9E /* ColorSystem.swift in Sources */,
+				D5BE63252B6EEB9F00A15C8B /* BookmarkManager.swift in Sources */,
+				D50E2F9C2B6B873200B7FE46 /* RandomCardView.swift in Sources */,
+				D5D53B642B69242600BF0F9E /* HomeView.swift in Sources */,
+				D5D53B6C2B69609700BF0F9E /* CardBottomBtnView.swift in Sources */,
+				D5D53B252B68067400BF0F9E /* MainView.swift in Sources */,
+				D5D53B292B68088400BF0F9E /* CustomTabView.swift in Sources */,
+				D56B53D12B6CFD8E0070CD13 /* CommonView.swift in Sources */,
+				D50E2F932B6B38C800B7FE46 /* PhotoPopupView.swift in Sources */,
+				D50E2F802B6A6A6000B7FE46 /* UserDefaultManager.swift in Sources */,
+				D56B53D52B6D00F00070CD13 /* CardView.swift in Sources */,
+				D5D53B272B6807A300BF0F9E /* TabBarItem.swift in Sources */,
+				D50E2F982B6B46C200B7FE46 /* View+Extension.swift in Sources */,
+				D5D53B4D2B68BEE000BF0F9E /* SearchManager.swift in Sources */,
+				D5D53B502B68BF2100BF0F9E /* Model.swift in Sources */,
+				D5D53B662B69256800BF0F9E /* HomeBookmarkScrollView.swift in Sources */,
+				D5D53AF92B68039500BF0F9E /* PrographyApp.swift in Sources */,
+				D5BE63222B6EABA900A15C8B /* PhotoGridView.swift in Sources */,
+				D56B53D72B6D2E0E0070CD13 /* CustomPopView.swift in Sources */,
+				D56B53D32B6CFDF30070CD13 /* Font.swift in Sources */,
+				D5D53B382B6820BF00BF0F9E /* FontSystem.swift in Sources */,
+				D5F9DD4A2B6A45380095F57E /* RandomCardViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D53B012B68039700BF0F9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D53B0A2B68039700BF0F9E /* PrographyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D53B0B2B68039700BF0F9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D53B142B68039700BF0F9E /* PrographyUITests.swift in Sources */,
+				D5D53B162B68039700BF0F9E /* PrographyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5D53B072B68039700BF0F9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5D53AF42B68039500BF0F9E /* Prography */;
+			targetProxy = D5D53B062B68039700BF0F9E /* PBXContainerItemProxy */;
+		};
+		D5D53B112B68039700BF0F9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5D53AF42B68039500BF0F9E /* Prography */;
+			targetProxy = D5D53B102B68039700BF0F9E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D5D53B172B68039700BF0F9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D5D53B182B68039700BF0F9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5D53B1A2B68039700BF0F9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Prography/Preview Content\"";
+				DEVELOPMENT_TEAM = H996FSG2V2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Prography/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linda.Prography;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5D53B1B2B68039700BF0F9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Prography/Preview Content\"";
+				DEVELOPMENT_TEAM = H996FSG2V2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Prography/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linda.Prography;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D5D53B1D2B68039700BF0F9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linda.PrographyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prography.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Prography";
+			};
+			name = Debug;
+		};
+		D5D53B1E2B68039700BF0F9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linda.PrographyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prography.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Prography";
+			};
+			name = Release;
+		};
+		D5D53B202B68039700BF0F9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linda.PrographyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Prography;
+			};
+			name = Debug;
+		};
+		D5D53B212B68039700BF0F9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linda.PrographyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Prography;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5D53AF02B68039500BF0F9E /* Build configuration list for PBXProject "Prography" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D53B172B68039700BF0F9E /* Debug */,
+				D5D53B182B68039700BF0F9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D53B192B68039700BF0F9E /* Build configuration list for PBXNativeTarget "Prography" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D53B1A2B68039700BF0F9E /* Debug */,
+				D5D53B1B2B68039700BF0F9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D53B1C2B68039700BF0F9E /* Build configuration list for PBXNativeTarget "PrographyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D53B1D2B68039700BF0F9E /* Debug */,
+				D5D53B1E2B68039700BF0F9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D53B1F2B68039700BF0F9E /* Build configuration list for PBXNativeTarget "PrographyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D53B202B68039700BF0F9E /* Debug */,
+				D5D53B212B68039700BF0F9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D50E2F812B6A8C5A00B7FE46 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		D5D53B552B68F20800BF0F9E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
+		D5D53B582B68F5B200BF0F9E /* XCRemoteSwiftPackageReference "swiftui-lazycollectionview" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/unsplash/swiftui-lazycollectionview.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		D5D53B5E2B69096A00BF0F9E /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D50E2F822B6A8C5A00B7FE46 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D50E2F812B6A8C5A00B7FE46 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D5D53B562B68F20800BF0F9E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5D53B552B68F20800BF0F9E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		D5D53B592B68F5B200BF0F9E /* LazyCollectionView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5D53B582B68F5B200BF0F9E /* XCRemoteSwiftPackageReference "swiftui-lazycollectionview" */;
+			productName = LazyCollectionView;
+		};
+		D5D53B5F2B69096A00BF0F9E /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5D53B5E2B69096A00BF0F9E /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D5D53AED2B68039500BF0F9E /* Project object */;
+}
