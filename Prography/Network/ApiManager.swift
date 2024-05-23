@@ -56,9 +56,24 @@ class ApiManager {
         
         let urls = URL(string: "\(BaseURL.baseUrl)\(endPoint)")
 
-        guard let url = urls else {
+        guard var url = urls else {
             completion(.failure(.urlError))
             return
+        }
+        
+        // url에 query parameter 추가하기
+//        url.append(queryItems: [
+//            URLQueryItem(name: "per_page", value: "20"), // 한번에 몇 장의 이미지를 가져올 것인지?
+//            URLQueryItem(name: "order_by", value: "popular") // 이미지 정렬 옵션
+//        ])
+        
+        
+        if let queryParameter = queryParameter {
+            let queryItem = queryParameter.map { dictionary in
+                URLQueryItem(name: dictionary.key, value: dictionary.value)
+            }
+            
+            url.append(queryItems: queryItem)
         }
         
         var urlRequest = URLRequest(url: url)
@@ -106,6 +121,11 @@ class ApiManager {
         }
         task.resume()
     }
+    
+    //    Post Method
+    //    func uploadPhoto(photo: CollectionPhoto) {
+    //
+    //    }
 }
 
 //        let urlComponents = URLComponents(string: "\(BaseURL.baseUrl)\(endPoint)")
@@ -113,3 +133,15 @@ class ApiManager {
 //            completion(.failure(.urlError))
 //            return
 //        }
+
+struct CollectionPhoto: Codable {
+    let title: String
+    let description: String?
+    let `private`: Bool
+    
+    init(title: String, description: String?, `private`: Bool) {
+        self.title = title
+        self.description = description
+        self.private = `private`
+    }
+}
