@@ -6,27 +6,44 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NetworkingStudyView: View {
     let apiManager = ApiManager()
-    @State private var sample: [Photos]?
+    @State private var sample: [Photos] = []
     @State private var errorMessage: NetworkError?
     
     var body: some View {
-        VStack {
-            Text("하요")
-        }
-        .onAppear {
-            apiManager.requestApi(apiMethod: .get, endPoint: "") { (result: Result<[Photos], NetworkError>) in
-                switch result {
-                case .success(let success):
-                    self.sample = success
-                case .failure(let failure):
-                    self.errorMessage = failure
-                    print(errorMessage ?? "")
-                    print(failure.errorDescrpiton ?? "ddddd")
+        ScrollView {
+            VStack(alignment: .leading) {
+                ForEach(sample, id: \.id) { photo in
+                    Text("ID: \(photo.id)")
+                    
+                    if let url = photo.urls?.raw {
+                        let urls = URL(string: url)
+                        
+                        KFImage(urls)
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                            .scaledToFill()
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        
+                    }
+
                 }
             }
+        }
+        .onAppear {
+//            apiManager.requestApi(apiMethod: .get, endPoint: "") { (result: Result<[Photos], NetworkError>) in
+//                switch result {
+//                case .success(let success):
+//                    self.sample = success
+//                case .failure(let failure):
+//                    self.errorMessage = failure
+//                    print(errorMessage ?? "")
+//                    print(failure.errorDescrpiton ?? "ddddd")
+//                }
+//            }
         }
     }
 }

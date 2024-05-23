@@ -9,6 +9,7 @@ import Foundation
 
 struct BaseURL {
     static let baseUrl: String = "https://api.unsplash.com/photos"
+    static let clientID: String = "BYmNhE5R5j3AcWPs3V5U3_RGnR-XL7fqkuJqmrEfV3s"
 }
 enum ApiMethod: String {
     case get = "GET"
@@ -52,21 +53,21 @@ class ApiManager {
         queryParameter: [String: String]? = nil,
         completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
-    
-//        let urlComponents = URLComponents(string: "\(BaseURL.baseUrl)\(endPoint)")
-//        guard let urlComponent = urlComponents else {
-//            completion(.failure(.urlError))
-//            return
-//        }
         
         let urls = URL(string: "\(BaseURL.baseUrl)\(endPoint)")
-        
+
         guard let url = urls else {
             completion(.failure(.urlError))
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        var urlRequest = URLRequest(url: url)
+        urlRequest.allHTTPHeaderFields = [
+            "Authorization" : "Client-ID \(BaseURL.clientID)",
+            "Accept" : "application/json"
+        ]
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 print(error.localizedDescription)
                 completion(.failure(.apiError))
@@ -83,9 +84,15 @@ class ApiManager {
                 return
             }
             
-            guard let mimeType = httpResponse.mimeType,
-                  mimeType == "application/json",
-                  let data = data else {
+            // 응답의 content-type을 확인하기 (요청에 대한 확실한 보장이 없어서 한번 더 해줘서 나쁠건 없음)
+//            guard let mimeType = httpResponse.mimeType,
+//                  mimeType == "application/json",
+//                  let data = data else {
+//                completion(.failure(.typeError))
+//                return
+//            }
+            
+            guard let data = data else {
                 completion(.failure(.typeError))
                 return
             }
@@ -98,6 +105,11 @@ class ApiManager {
             }
         }
         task.resume()
-        
     }
 }
+
+//        let urlComponents = URLComponents(string: "\(BaseURL.baseUrl)\(endPoint)")
+//        guard let urlComponent = urlComponents else {
+//            completion(.failure(.urlError))
+//            return
+//        }
