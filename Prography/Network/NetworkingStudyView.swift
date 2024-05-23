@@ -9,7 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct NetworkingStudyView: View {
-    let apiManager = ApiManager()
+//    let apiManager = ApiManager()
+//    let apiManager = ApiManagerURLSessionConfiguration()
     @State private var sample: [Photos] = []
     @State private var errorMessage: NetworkError?
     
@@ -45,6 +46,17 @@ struct NetworkingStudyView: View {
 //                }
 //            }
         }
+//        .task {
+//            let result: Result<[Photos], NetworkError> = await apiManager.requestApiAsync(apiMethod: .get, endPoint: "")
+//            
+//            switch result {
+//            case .success(let success):
+//                self.sample = success
+//            case .failure(let failure):
+//                self.errorMessage = failure
+//                print(errorMessage ?? "")
+//            }
+//        }
     }
 }
 

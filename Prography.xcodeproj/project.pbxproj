@@ -19,6 +19,7 @@
 		D571EAD02BFF3C0E00034B63 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571EACF2BFF3C0E00034B63 /* ApiManager.swift */; };
 		D571EAD22BFF3C1F00034B63 /* NetworkingStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571EAD12BFF3C1E00034B63 /* NetworkingStudyView.swift */; };
 		D571EAD42BFF55EB00034B63 /* PostNetworkStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571EAD32BFF55EB00034B63 /* PostNetworkStudyView.swift */; };
+		D571EAD62BFF5B8D00034B63 /* ApiManagerAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571EAD52BFF5B8D00034B63 /* ApiManagerAsync.swift */; };
 		D5BE63222B6EABA900A15C8B /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */; };
 		D5BE63252B6EEB9F00A15C8B /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */; };
 		D5D53AF92B68039500BF0F9E /* PrographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53AF82B68039500BF0F9E /* PrographyApp.swift */; };
@@ -74,6 +75,7 @@
 		D571EACF2BFF3C0E00034B63 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		D571EAD12BFF3C1E00034B63 /* NetworkingStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStudyView.swift; sourceTree = "<group>"; };
 		D571EAD32BFF55EB00034B63 /* PostNetworkStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkStudyView.swift; sourceTree = "<group>"; };
+		D571EAD52BFF5B8D00034B63 /* ApiManagerAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerAsync.swift; sourceTree = "<group>"; };
 		D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridView.swift; sourceTree = "<group>"; };
 		D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		D5D53AF52B68039500BF0F9E /* Prography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prography.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +288,7 @@
 				D571EACF2BFF3C0E00034B63 /* ApiManager.swift */,
 				D571EAD12BFF3C1E00034B63 /* NetworkingStudyView.swift */,
 				D571EAD32BFF55EB00034B63 /* PostNetworkStudyView.swift */,
+				D571EAD52BFF5B8D00034B63 /* ApiManagerAsync.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				D56B53D52B6D00F00070CD13 /* CardView.swift in Sources */,
 				D5D53B272B6807A300BF0F9E /* TabBarItem.swift in Sources */,
 				D50E2F982B6B46C200B7FE46 /* View+Extension.swift in Sources */,
+				D571EAD62BFF5B8D00034B63 /* ApiManagerAsync.swift in Sources */,
 				D5D53B4D2B68BEE000BF0F9E /* SearchManager.swift in Sources */,
 				D5D53B502B68BF2100BF0F9E /* Model.swift in Sources */,
 				D5D53B662B69256800BF0F9E /* HomeBookmarkScrollView.swift in Sources */,

@@ -67,7 +67,6 @@ class ApiManager {
 //            URLQueryItem(name: "order_by", value: "popular") // 이미지 정렬 옵션
 //        ])
         
-        
         if let queryParameter = queryParameter {
             let queryItem = queryParameter.map { dictionary in
                 URLQueryItem(name: dictionary.key, value: dictionary.value)
@@ -145,3 +144,74 @@ struct CollectionPhoto: Codable {
         self.private = `private`
     }
 }
+
+/*
+ // URLSessionConfiguration을 사용해서..
+ let urlComponents = URLComponents(string: "\(BaseURL.baseUrl)\(endPoint)")
+ 
+ // let url = URL(string: "\(BaseURL.baseUrl)\(endPoint)")!
+ // urlComponents 말고 이렇게 사용해도 됨! 그치만 쿼리가 많아진다면 Components 사용이 용이함
+ // "https://api.example.com/data?key1=value1&key2=value2" url 자체가 이런 경우 url(string:) 사용
+ 
+ guard var urlComponent = urlComponents else {
+     completion(.failure(.urlError))
+     return
+ }
+ 
+ let config = URLSessionConfiguration.default
+
+ // 헤더 설정
+ config.httpAdditionalHeaders = [
+     "Authorization" : "Client-ID \(BaseURL.clientID)",
+     "Accept" : "application/json"
+ ]
+
+ // session 생성
+ let session = URLSession(configuration: config)
+ 
+ // 쿼리 설정
+ if let queryParameter = queryParameter {
+     let queryItem = queryParameter.map { dictionary in
+         URLQueryItem(name: dictionary.key, value: dictionary.value)
+     }
+     urlComponent.queryItems = queryItem
+ }
+ 
+ // task 설정
+ guard let requestURL = urlComponent.url else {
+     completion(.failure(.nilError))
+     return
+ }
+ 
+ let task = session.dataTask(with: requestURL) { data, response, error in
+     if let error = error {
+         print(error.localizedDescription)
+         completion(.failure(.apiError))
+         return
+     }
+     
+     guard let httpResponse = response as? HTTPURLResponse else {
+         completion(.failure(.nilError))
+         return
+     }
+     
+     guard (200...299).contains(httpResponse.statusCode) else {
+         completion(.failure(.responseError(httpResponse.statusCode)))
+         return
+     }
+     
+     guard let data = data else {
+         completion(.failure(.typeError))
+         return
+     }
+
+     do {
+         let decodedData = try JSONDecoder().decode(T.self, from: data)
+         completion(.success(decodedData))
+     } catch {
+         completion(.failure(.parsingError))
+     }
+ }
+ task.resume()
+}
+ */
