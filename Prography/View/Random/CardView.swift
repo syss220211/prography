@@ -109,7 +109,7 @@ struct CardView: View {
             randomCardViewModel.randomImage[0] = backgroundImage
         } else {
             randomCardViewModel.randomImage[1] = randomCardViewModel.randomImage[0]
-            randomCardViewModel.randomImage[0] = Result.emptyData
+            randomCardViewModel.randomImage[0] = RandomResult.emptyData
         }
         
         randomCardViewModel.fetchBackgroundImage()

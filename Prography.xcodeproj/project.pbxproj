@@ -16,6 +16,8 @@
 		D56B53D32B6CFDF30070CD13 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D22B6CFDF30070CD13 /* Font.swift */; };
 		D56B53D52B6D00F00070CD13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D42B6D00F00070CD13 /* CardView.swift */; };
 		D56B53D72B6D2E0E0070CD13 /* CustomPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B53D62B6D2E0E0070CD13 /* CustomPopView.swift */; };
+		D571EAD02BFF3C0E00034B63 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571EACF2BFF3C0E00034B63 /* ApiManager.swift */; };
+		D571EAD22BFF3C1F00034B63 /* NetworkingStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571EAD12BFF3C1E00034B63 /* NetworkingStudyView.swift */; };
 		D5BE63222B6EABA900A15C8B /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */; };
 		D5BE63252B6EEB9F00A15C8B /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */; };
 		D5D53AF92B68039500BF0F9E /* PrographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D53AF82B68039500BF0F9E /* PrographyApp.swift */; };
@@ -68,6 +70,8 @@
 		D56B53D22B6CFDF30070CD13 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		D56B53D42B6D00F00070CD13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D56B53D62B6D2E0E0070CD13 /* CustomPopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopView.swift; sourceTree = "<group>"; };
+		D571EACF2BFF3C0E00034B63 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		D571EAD12BFF3C1E00034B63 /* NetworkingStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStudyView.swift; sourceTree = "<group>"; };
 		D5BE63212B6EABA900A15C8B /* PhotoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridView.swift; sourceTree = "<group>"; };
 		D5BE63242B6EEB9F00A15C8B /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		D5D53AF52B68039500BF0F9E /* Prography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prography.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				D5D53B4C2B68BEE000BF0F9E /* SearchManager.swift */,
+				D571EACF2BFF3C0E00034B63 /* ApiManager.swift */,
+				D571EAD12BFF3C1E00034B63 /* NetworkingStudyView.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -459,10 +465,12 @@
 				D5D53B4D2B68BEE000BF0F9E /* SearchManager.swift in Sources */,
 				D5D53B502B68BF2100BF0F9E /* Model.swift in Sources */,
 				D5D53B662B69256800BF0F9E /* HomeBookmarkScrollView.swift in Sources */,
+				D571EAD22BFF3C1F00034B63 /* NetworkingStudyView.swift in Sources */,
 				D5D53AF92B68039500BF0F9E /* PrographyApp.swift in Sources */,
 				D5BE63222B6EABA900A15C8B /* PhotoGridView.swift in Sources */,
 				D56B53D72B6D2E0E0070CD13 /* CustomPopView.swift in Sources */,
 				D56B53D32B6CFDF30070CD13 /* Font.swift in Sources */,
+				D571EAD02BFF3C0E00034B63 /* ApiManager.swift in Sources */,
 				D5D53B382B6820BF00BF0F9E /* FontSystem.swift in Sources */,
 				D5F9DD4A2B6A45380095F57E /* RandomCardViewModel.swift in Sources */,
 			);
