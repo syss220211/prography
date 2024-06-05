@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 // 랜덤 이미지에서 사용하는 모델
-struct Result: Codable, Identifiable {
+struct RandomResult: Codable, Identifiable {
     let id: String
     let urls: Urls?
     let slug: String
     
-    static let emptyData = Result(id: "통신 실패.", urls: nil, slug: "")
+    static let emptyData = RandomResult(id: "통신 실패.", urls: nil, slug: "")
 }
 
 // 홈뷰에서 최신 이미지 불러올때 사용하는 모델

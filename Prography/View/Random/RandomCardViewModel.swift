@@ -9,11 +9,11 @@ import SwiftUI
 import Alamofire
 
 final class RandomCardViewModel: ObservableObject {
-    @Published var randomImage: [Result] = []
+    @Published var randomImage: [RandomResult] = []
     @Published var photoURL: String = ""
     @Published var photoID: String = ""
     @Published var title: String = ""
-    @Published var backgroundRandomImage: Result?
+    @Published var backgroundRandomImage: RandomResult?
     @Published var isTapped: Bool = false
     @Published var randomPhotoInfo: PhotoDetail = .init(id: UUID().uuidString,
                                                        description: "",

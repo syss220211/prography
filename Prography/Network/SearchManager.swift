@@ -37,10 +37,10 @@ final class SearchObjectManager {
     
     // MARK: - 두번째 탭바용 함수
     /// 랜덤 사진 한 장 가져오는 함수
-    func searchRandomImage(completion: @escaping (Result?) -> Void) {
+    func searchRandomImage(completion: @escaping (RandomResult?) -> Void) {
         let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
         
-        AF.request(url).validate().responseDecodable(of: Result.self) { response in
+        AF.request(url).validate().responseDecodable(of: RandomResult.self) { response in
             switch response.result {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
@@ -54,11 +54,11 @@ final class SearchObjectManager {
     }
     
     /// 무한 스크롤을 위해 뒤어서 도는 함수
-    func backgroundRandomImage(completion: @escaping (Result?) -> Void) {
+    func backgroundRandomImage(completion: @escaping (RandomResult?) -> Void) {
         let url = "https://api.unsplash.com/photos/random?client_id=\(accessKey)"
         
         DispatchQueue.global().async {
-            AF.request(url).validate().responseDecodable(of: Result.self) { response in
+            AF.request(url).validate().responseDecodable(of: RandomResult.self) { response in
                 switch response.result {
                 case .success(let jsonResult):
                     completion(jsonResult)

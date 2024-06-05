@@ -13,8 +13,9 @@ struct PrographyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(bookmarkManager)
+//            MainView()
+//                .environmentObject(bookmarkManager)
+            NetworkingStudyView()
         }
     }
 }
