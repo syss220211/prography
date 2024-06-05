@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct NetworkingStudyView: View {
-//    let apiManager = ApiManager()
+    let apiManager = ApiManagerHeader()
 //    let apiManager = ApiManagerURLSessionConfiguration()
     @State private var sample: [Photos] = []
     @State private var errorMessage: NetworkError?
@@ -35,6 +35,16 @@ struct NetworkingStudyView: View {
             }
         }
         .onAppear {
+//            apiManager.requestApi(apiMethod: .get, endPoint: "") { (result: Result<[Photos], NetworkError>) in
+//                switch result {
+//                case .success(let success):
+//                    self.sample = success
+//                case .failure(let failure):
+//                    self.errorMessage = failure
+//                    print(errorMessage ?? "")
+//                    print(failure.errorDescrpiton ?? "ddddd")
+//                }
+//            }
 //            apiManager.requestApi(apiMethod: .get, endPoint: "") { (result: Result<[Photos], NetworkError>) in
 //                switch result {
 //                case .success(let success):
